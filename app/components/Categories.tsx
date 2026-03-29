@@ -175,9 +175,7 @@ export default function Categories() {
                     />
                   </div>
                 ))}
-                <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-10">
-                  <ArrowUpRight size={16} />
-                </div>
+
               </div>
 
               <div className="h-4 flex items-center justify-center gap-1.5 mb-3">

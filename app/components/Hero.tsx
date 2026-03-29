@@ -28,9 +28,9 @@ export default function Hero() {
             Experience the perfect synthesis of minimalist design and unparalleled functionality with our latest ceramic collections.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-navy text-white px-8 py-3.5 text-[12px] font-semibold tracking-[0.1em] uppercase rounded-sm hover:bg-navy-light hover:-translate-y-[1px] shadow-[0_8px_24px_rgba(26,39,68,0.25)] transition-all">
+            <a href="#collections" className="bg-navy text-white px-8 py-3.5 text-[12px] font-semibold tracking-[0.1em] uppercase rounded-sm hover:bg-navy-light hover:-translate-y-[1px] shadow-[0_8px_24px_rgba(26,39,68,0.25)] transition-all flex items-center justify-center">
               Explore Collection
-            </button>
+            </a>
             <a href="/catalog.pdf" download="Axpert_Cera_Catalog.pdf" className="inline-flex items-center justify-center bg-transparent border-[1.5px] border-navy text-navy px-8 py-3.5 text-[12px] font-semibold tracking-[0.1em] uppercase rounded-sm hover:bg-navy hover:text-white hover:-translate-y-[1px] transition-all">
               View Catalog
             </a>

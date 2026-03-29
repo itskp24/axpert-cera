@@ -1,57 +1,87 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Search, Heart, User, ShoppingBag } from 'lucide-react';
+import { Search, Heart, User, ShoppingBag, X } from 'lucide-react';
 import Link from 'next/link';
+import SearchOverlay from './SearchOverlay';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState('Home');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [catalogItems, setCatalogItems] = useState<string[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    
+    fetch('/api/category-images')
+      .then(res => res.json())
+      .then(data => {
+        setCatalogItems(Object.keys(data));
+      })
+      .catch(() => {});
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-in-out py-4 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent'}`}>
+    <>
+    <nav className={`fixed top-0 left-0 right-0 z-[80] transition-all duration-500 ease-in-out py-6 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent'}`}>
       <div className="max-w-[1280px] mx-auto px-5 md:px-10 flex items-center justify-between">
-        <Link href="/" className="flex items-baseline gap-1 font-sans font-bold text-lg tracking-[0.08em] text-navy">
-          AXPERT <span className="text-[11px] font-normal tracking-[0.2em] text-text-gray uppercase">CERA</span>
+        <Link href="/" onClick={() => {setActiveItem('Home'); setSearchOpen(false);}} className="flex items-baseline gap-1 font-sans font-bold text-xl tracking-[0.1em] text-navy">
+          AXPERT <span className="text-[12px] font-normal tracking-[0.25em] text-text-gray uppercase">CERA</span>
         </Link>
-        <ul className="hidden md:flex items-center gap-9 list-none">
-          <li>
-            <Link href="/" className="text-[13px] font-medium tracking-[0.05em] text-navy relative pb-[2px] after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] auto after:bg-navy">
-              Home
-            </Link>
-          </li>
-          {['Products', 'Collections', 'About', 'Catalog'].map((item) => (
+        <ul className="hidden lg:flex items-center gap-10 list-none">
+          {['Home', 'Products', 'Collections', 'About', 'Catalog'].map((item) => (
             <li key={item}>
-              <Link href={`#${item.toLowerCase()}`} className="text-[13px] font-medium tracking-[0.05em] text-navy relative pb-[2px] after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 hover:after:w-full after:h-[1px] after:bg-navy after:transition-all after:duration-300">
+              <Link 
+                href={item === 'Home' ? '/' : `#${item.toLowerCase()}`} 
+                onClick={() => setActiveItem(item)}
+                className={`text-[13px] font-semibold tracking-[0.08em] text-navy relative pb-[4px] decoration-none transition-colors hover:text-navy-light ${
+                  activeItem === item ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-navy' : ''
+                }`}
+              >
                 {item}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-2 md:gap-5">
-          <button aria-label="Search" className="text-navy w-9 h-9 rounded-full flex items-center justify-center hover:bg-light-gray transition-colors"><Search size={18} strokeWidth={1.5} /></button>
-          <button aria-label="Wishlist" className="hidden sm:flex text-navy w-9 h-9 rounded-full items-center justify-center hover:bg-light-gray transition-colors"><Heart size={18} strokeWidth={1.5} /></button>
-          <button aria-label="Account" className="hidden sm:flex text-navy w-9 h-9 rounded-full items-center justify-center hover:bg-light-gray transition-colors"><User size={18} strokeWidth={1.5} /></button>
-          <button aria-label="Cart" className="relative text-navy w-9 h-9 rounded-full flex items-center justify-center hover:bg-light-gray transition-colors">
-            <ShoppingBag size={18} strokeWidth={1.5} />
-            <span className="absolute -top-1 -right-1 bg-navy text-white text-[9px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        <div className="flex items-center gap-3 md:gap-6">
+          <button 
+            onClick={() => setSearchOpen(true)}
+            className="text-navy p-2 hover:bg-light-gray rounded-full transition-all duration-300"
+          >
+            <Search size={20} strokeWidth={1.5} />
           </button>
-          <a href="https://wa.me/919429339212?text=Hello,%20I%20would%20like%20to%20inquire%20about%20Axpert%20Cera%20products." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-navy w-9 h-9 rounded-full flex items-center justify-center hover:bg-light-gray hover:text-[#25D366] transition-colors ml-1">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Outer bubble outline matching lucide-react 1.5 stroke */}
-              <path d="M12 2a10 10 0 0 1 10 10c0 1.63-.39 3.17-1.08 4.53l1.08 4.47-4.47-1.08c-1.36.69-2.9 1.08-4.53 1.08a10 10 0 0 1-10-10A10 10 0 0 1 12 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              {/* Inner phone solid fill */}
-              <path d="M16.01 14.48c-.28-.14-1.63-.8-1.89-.89s-.45-.14-.64.14-.73.89-.89 1.07-.33.2-.61.06a7.7 7.7 0 0 1-2.28-1.4 8.5 8.5 0 0 1-1.57-1.95c-.17-.28-.02-.43.12-.57s.28-.33.42-.5.19-.28.28-.47-.05-.36-.14-.5-.73-1.74-1-2.39c-.26-.64-.53-.55-.73-.56h-.62s-.42.06-.71.37-1.08 1.06-1.08 2.58 1.11 2.99 1.26 3.19 2.18 3.33 5.29 4.67c.74.32 1.31.51 1.76.65.6.19 1.14.16 1.57.1.48-.07 1.48-.6 1.69-1.19s.21-1.1.15-1.19-.21-.14-.49-.28z" fill="currentColor" />
+          
+          <div className="hidden sm:flex items-center gap-4">
+            <button className="text-navy p-2 hover:bg-light-gray rounded-full transition-all" aria-label="Favorites"><Heart size={20} strokeWidth={1.5} /></button>
+            <button className="text-navy p-2 hover:bg-light-gray rounded-full transition-all" aria-label="Profile"><User size={20} strokeWidth={1.5} /></button>
+          </div>
+          
+          <button className="relative text-navy p-2 hover:bg-light-gray rounded-full transition-all" aria-label="Cart">
+            <ShoppingBag size={20} strokeWidth={1.5} />
+            <span className="absolute top-1 right-1 bg-navy text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </button>
+
+          <a href="https://wa.me/919429339212?text=Hello,%20I%20would%20like%20to%20inquire%20about%20Axpert%20Cera%20products." target="_blank" rel="noopener noreferrer" className="text-navy p-2 hover:bg-light-gray hover:text-[#25D366] rounded-full transition-all group" aria-label="WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.747-2.874-2.511-2.96-2.626-.087-.115-.708-.941-.708-1.797 0-.856.448-1.274.607-1.446.16-.171.347-.214.464-.214.118 0 .234.002.336.006.107.005.252-.04.395.302.144.347.491 1.196.533 1.284.045.087.073.189.014.305-.057.115-.088.19-.174.289-.087.101-.183.226-.26.303-.093.093-.191.194-.081.385.111.191.491.808 1.056 1.312.729.648 1.343.85 1.534.942.191.092.303.077.417-.053.114-.13.491-.569.622-.764.131-.194.262-.163.443-.097.182.067 1.155.545 1.352.643.197.099.328.146.375.228.046.082.046.475-.101.88z" />
+              <path d="M12.036 0C5.405 0 .015 5.391.012 12.02c0 2.119.541 4.186 1.571 6.014L0 24l6.135-1.61c1.765.962 3.754 1.47 5.795 1.47h.01c6.626 0 12.023-5.392 12.026-12.022a12.01 12.01 0 00-3.522-8.502A11.95 11.95 0 0012.036 0zm0 21.06h-.008a9.03 9.03 0 01-4.603-1.263l-.33-.196-3.424.898.913-3.34-.215-.342a9.02 9.02 0 01-1.383-4.814c.001-4.99 4.06-9.049 9.053-9.049 2.417 0 4.69 1.01 6.398 2.651a9.03 9.03 0 012.647 6.4c-.003 4.992-4.062 9.053-9.048 9.053z" />
             </svg>
           </a>
         </div>
       </div>
     </nav>
+
+    {/* Dedicated Search Component */}
+    <SearchOverlay 
+      isOpen={searchOpen} 
+      onClose={() => setSearchOpen(false)} 
+      catalogItems={catalogItems} 
+    />
+    </>
   );
 }
