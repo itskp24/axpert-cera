@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3 text-white/65 text-[13px] leading-[1.5]">
                 <MapPin size={16} className="text-gold shrink-0 mt-0.5" />
-                <span>Morbi, Gujarat<br />India 363641</span>
+                <span>Gugliyana, Near Gugliyana Bus Stop,<br />Than Chotila Road, Than,<br />Surendra Nagar-Gujarat-363530, Gujarat</span>
               </div>
               <div className="flex gap-3 text-white/65 text-[13px] flex-col">
                 <div className="flex items-center gap-3">

@@ -13,7 +13,7 @@ export default function Newsletter() {
           Request a Catalog
         </h2>
         <p className="text-[14px] text-text-gray max-w-[480px] mx-auto mb-10 leading-[1.7]">
-          Join our mailing list to receive our latest 2024 digital catalog and stay updated on new collections and exclusive architectural resources.
+          Join our mailing list to receive our latest {new Date().getFullYear()} digital catalog and stay updated on new collections and exclusive architectural resources.
         </p>
         
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-[480px] mx-auto border-[1.5px] border-border rounded-sm overflow-hidden focus-within:border-navy transition-colors">

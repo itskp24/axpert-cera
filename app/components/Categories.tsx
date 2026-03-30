@@ -6,15 +6,15 @@ import { X, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 const FOLDER_MAP: Record<string, string> = {
-  'One Piece Toilet':       'onepiecetoilet',
-  'Pedestal Wash Basin':    'pedestalwashbasin',
-  'One Piece Basin':        'onepiecebasin',
-  'Wall Hung Toilet':       'wallhungtoilet',
-  'Water Closet':           'watercloset',
-  'Table Top Basin':        'tabletopbasin',
-  'Wall Mount Wash Basin':  'wallmountwashbasin',
-  'Pan & Urinal':           'panurinal',
-  'Designer Collection':    'designercollection',
+  'One Piece Toilet': 'onepiecetoilet',
+  'Pedestal Wash Basin': 'pedestalwashbasin',
+  'One Piece Basin': 'onepiecebasin',
+  'Wall Hung Toilet': 'wallhungtoilet',
+  'Water Closet': 'watercloset',
+  'Table Top Basin': 'tabletopbasin',
+  'Wall Mount Wash Basin': 'wallmountwashbasin',
+  'Pan & Urinal': 'panurinal',
+  'Designer Collection': 'designercollection',
 };
 
 
@@ -140,7 +140,7 @@ export default function Categories() {
             Array.from({ length: 8 }).map((_, idx) => (
               <div key={idx} className="bg-white p-4 h-[420px] flex flex-col border border-transparent">
                 <div className="relative flex-1 mb-2 bg-[#F8F8F6] animate-pulse rounded-sm"></div>
-                
+
                 <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
                   <div className="w-4 h-1.5 bg-[#EBEBEB] animate-pulse rounded-full"></div>
                   {Array.from({ length: 4 }).map((_, dIdx) => (
@@ -157,42 +157,40 @@ export default function Categories() {
             ))
           ) : (
             categories.map((cat, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-4 h-[420px] group cursor-pointer flex flex-col transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#EBEBEB]"
-              onClick={() => openModal(cat, currentImageIndices[idx] ?? 0)}
-            >
-              <div className="relative flex-1 overflow-hidden mb-2">
-                {cat.images.map((img, imgIdx) => (
-                  <div
-                    key={imgIdx}
-                    className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${
-                      imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <Image src={img} alt={cat.name} width={400} height={400}
-                      className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                ))}
+              <div
+                key={idx}
+                className="bg-white p-4 h-[420px] group cursor-pointer flex flex-col transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#EBEBEB]"
+                onClick={() => openModal(cat, currentImageIndices[idx] ?? 0)}
+              >
+                <div className="relative flex-1 overflow-hidden mb-2">
+                  {cat.images.map((img, imgIdx) => (
+                    <div
+                      key={imgIdx}
+                      className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    >
+                      <Image src={img} alt={cat.name} width={400} height={400}
+                        className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  ))}
 
-              </div>
+                </div>
 
-              <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
-                {cat.images.length > 1 && cat.images.map((_, dotIdx) => (
-                  <span key={dotIdx} className={`block rounded-full transition-all duration-500 ${
-                    dotIdx === (currentImageIndices[idx] ?? 0) ? 'w-4 h-1.5 bg-black' : 'w-1.5 h-1.5 bg-black/20'
-                  }`} />
-                ))}
-              </div>
+                <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
+                  {cat.images.length > 1 && cat.images.map((_, dotIdx) => (
+                    <span key={dotIdx} className={`block rounded-full transition-all duration-500 ${dotIdx === (currentImageIndices[idx] ?? 0) ? 'w-4 h-1.5 bg-black' : 'w-1.5 h-1.5 bg-black/20'
+                      }`} />
+                  ))}
+                </div>
 
-              <div className="space-y-1">
-                <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase">Category</p>
-                <h3 className="font-serif text-[18px] text-[#1A1A1A] leading-tight">{cat.name}</h3>
-                <p className="text-[11px] text-[#888] font-medium">{cat.count}</p>
+                <div className="space-y-1">
+                  <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase">Category</p>
+                  <h3 className="font-serif text-[18px] text-[#1A1A1A] leading-tight">{cat.name}</h3>
+                  <p className="text-[11px] text-[#888] font-medium">{cat.count}</p>
+                </div>
               </div>
-            </div>
-          )))}
+            )))}
         </div>
       </div>
 
@@ -269,9 +267,8 @@ export default function Categories() {
                   <button
                     key={i}
                     onClick={() => setModal(prev => prev ? { ...prev, imageIndex: i } : null)}
-                    className={`flex-none w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                      i === modal.imageIndex ? 'border-black scale-105' : 'border-transparent opacity-50 hover:opacity-80'
-                    }`}
+                    className={`flex-none w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${i === modal.imageIndex ? 'border-black scale-105' : 'border-transparent opacity-50 hover:opacity-80'
+                      }`}
                   >
                     <Image src={img} alt={`thumb-${i}`} width={64} height={64} className="object-contain w-full h-full bg-white p-1" />
                   </button>

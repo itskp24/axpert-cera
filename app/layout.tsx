@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Axpert Cera | Premium Sanitaryware & Luxury Bathroom Collections",
-  description: "Discover Axpert Cera's premium sanitaryware collections — modern washbasins, water closets, bathtubs, and luxury faucets. Elevate your bathroom sanctuary.",
-  keywords: "sanitaryware, washbasin, toilet, bathtub, faucet, premium bathroom, luxury ceramic, Axpert Cera",
+  title: "Axpert Cera | Top Premium Sanitaryware & Ceramic Products",
+  description: "Discover Axpert Cera's premium sanitaryware, luxury ceramic products, modern washbasins, water closets, bathtubs, and bathroom fittings. Elevate your bathroom with top cera products.",
+  keywords: "cera, ceramic products, sanitaryware, best cera brand, premium bathroom, washbasin, toilet, bathtub, luxury ceramic, Axpert Cera, top cera products, bathroom fittings",
   openGraph: {
-    title: "Axpert Cera | Premium Sanitaryware",
-    description: "Elevate your sanctuary with minimalist design and unparalleled functionality.",
+    title: "Axpert Cera | Top Premium Sanitaryware & Ceramic Products",
+    description: "Axpert Cera offers the best in premium sanitaryware, luxury ceramic products, modern washbasins, water closets, and bathroom fittings.",
     type: "website",
     url: "https://axpertcera.com",
     images: [{ url: "/hero_bathroom.png" }]

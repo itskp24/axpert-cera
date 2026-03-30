@@ -159,7 +159,7 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
 
               <div className="bg-[#1A1A1A] p-6 rounded-xl text-white relative overflow-hidden">
                 <p className="text-[8px] font-bold tracking-[0.2em] text-[#C4A484] mb-1.5 uppercase">Catalog</p>
-                <h4 className="font-serif text-[15px] mb-4 leading-snug">Download 2024 PDF</h4>
+                <h4 className="font-serif text-[15px] mb-4 leading-snug">Download {new Date().getFullYear()} PDF</h4>
                 <Link href="/catalog.pdf" download className="inline-flex items-center gap-2 border border-white/20 px-3.5 py-2 rounded text-[9px] font-bold uppercase tracking-widest hover:bg-[#C4A484] hover:border-[#C4A484] transition-all">
                   Download
                 </Link>

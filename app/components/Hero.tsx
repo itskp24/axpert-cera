@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="max-w-[1280px] w-full mx-auto px-5 md:px-10 relative z-10 flex items-center h-full">
         <div className="max-w-[520px] animate-[fadeIn_0.8s_ease_forwards]">
           <div className="text-[11px] font-medium tracking-[0.18em] uppercase text-navy mb-5 opacity-80">
-            New Collection 2024
+            New Collection {new Date().getFullYear()}
           </div>
           <h1 className="font-serif text-[clamp(48px,6vw,80px)] font-normal text-navy-dark leading-[1.1] mb-5">
             Elevate Your<br />Sanctuary.
