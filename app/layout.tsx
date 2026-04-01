@@ -54,6 +54,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Axpert Cera", url: BASE_URL }],
   creator: "Axpert Cera",
   publisher: "Axpert Cera",
+  verification: {
+    google: "UaNwzvZj79a7-Tw8aYw7pNTI0SQ0sRXPmB13BVTSdS0",
+  },
   robots: {
     index: true,
     follow: true,
@@ -96,9 +99,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-  },
-  verification: {
-    google: "",
   },
   category: "Manufacturing",
 };
