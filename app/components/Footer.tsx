@@ -45,7 +45,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Products — first 5 */}
+          {/* Products - first 5 */}
           <div className="lg:col-span-3">
             <h4 className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-6">Product Categories</h4>
             <ul className="flex flex-col gap-3">
@@ -59,7 +59,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Products — remaining */}
+          {/* Products - remaining */}
           <div className="lg:col-span-2">
             <h4 className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-6">More Products</h4>
             <ul className="flex flex-col gap-3">
@@ -131,7 +131,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[12px] text-white/35">
-            &copy; {new Date().getFullYear()} Axpert Cera — Premium Sanitaryware Manufacturer, Gujarat, India. All rights reserved.
+            &copy; {new Date().getFullYear()} Axpert Cera - Premium Sanitaryware Manufacturer, Gujarat, India. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-7">
             <Link href="#" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Privacy Policy</Link>

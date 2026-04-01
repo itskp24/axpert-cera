@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 const BASE_URL = "https://www.axpertcera.com";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Axpert Cera",
   },
   description:
-    "Axpert Cera is a leading ISO-certified sanitaryware manufacturer based in Gujarat, India. We supply premium ceramic products — One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, Pan & Urinal, and Designer Collections — to dealers and buyers across Gujarat and all India. Serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar and pan-India.",
+    "Axpert Cera is a leading ISO-certified sanitaryware manufacturer based in Gujarat, India. We supply premium ceramic products - One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, Pan & Urinal, and Designer Collections - to dealers and buyers across Gujarat and all India. Serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar and pan-India.",
   keywords: [
     "Axpert Cera",
     "Axpert Ceramic",
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
     siteName: "Axpert Cera",
     title: "Axpert Cera | Premium Sanitaryware Manufacturer in Morbi, Gujarat",
     description:
-      "Explore Axpert Cera's wide range of ISO-certified ceramic sanitaryware — One Piece Toilets, Pedestal Basins, Wall Hung Toilets, Water Closets, and Designer Collections. Manufacturer based in Gujarat, India.",
+      "Explore Axpert Cera's wide range of ISO-certified ceramic sanitaryware - One Piece Toilets, Pedestal Basins, Wall Hung Toilets, Water Closets, and Designer Collections. Manufacturer based in Gujarat, India.",
     images: [
       {
         url: "/hero_bathroom.png",
@@ -92,13 +93,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Axpert Cera | Premium Sanitaryware Manufacturer in Morbi, Gujarat",
     description:
-      "Explore Axpert Cera's premium ceramic sanitaryware — One Piece Toilets, Pedestal Basins, Wall Hung Toilets, Water Closets & Designer Collections. Based in Gujarat, India.",
+      "Explore Axpert Cera's premium ceramic sanitaryware - One Piece Toilets, Pedestal Basins, Wall Hung Toilets, Water Closets & Designer Collections. Based in Gujarat, India.",
     images: ["/hero_bathroom.png"],
     creator: "@axpertcera",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
   },
   category: "Manufacturing",
 };
@@ -119,8 +120,8 @@ export default function RootLayout({
         url: BASE_URL,
         logo: {
           "@type": "ImageObject",
-          url: `${BASE_URL}/favicon.ico`,
-          contentUrl: `${BASE_URL}/favicon.ico`,
+          url: `${BASE_URL}/favicon.png`,
+          contentUrl: `${BASE_URL}/favicon.png`,
         },
         foundingDate: "2019",
         description:
@@ -187,7 +188,7 @@ export default function RootLayout({
         currenciesAccepted: "INR",
         paymentAccepted: "Cash, Bank Transfer",
         description:
-          "Leading ISO-certified sanitaryware manufacturer in Gujarat, India. We supply premium ceramic products — One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, Designer Collections — to dealers across Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar and pan-India.",
+          "Leading ISO-certified sanitaryware manufacturer in Gujarat, India. We supply premium ceramic products - One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, Designer Collections - to dealers across Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar and pan-India.",
         keywords:
           "sanitaryware manufacturer Morbi, ceramic products Rajkot, wash basin Morbi, one piece toilet Gujarat, sanitaryware Ahmedabad, ceramic products Ahmedabad, sanitaryware Gandhinagar, bathroom fittings Surat, sanitaryware Vadodara, bathroom fittings Chotila, sanitaryware manufacturer Gujarat, ISO certified sanitaryware India, sanitaryware supplier India",
         hasMap: "https://maps.google.com",
@@ -200,7 +201,7 @@ export default function RootLayout({
         url: BASE_URL,
         name: "Axpert Cera",
         description:
-          "Premium sanitaryware manufacturer in Gujarat, India — One Piece Toilets, Wash Basins, Wall Hung Toilets, Water Closets, Designer Collections. Serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara and all India.",
+          "Premium sanitaryware manufacturer in Gujarat, India - One Piece Toilets, Wash Basins, Wall Hung Toilets, Water Closets, Designer Collections. Serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara and all India.",
         publisher: {
           "@id": `${BASE_URL}/#organization`,
         },
@@ -232,35 +233,35 @@ export default function RootLayout({
             position: 2,
             name: "Pedestal Wash Basin",
             url: `${BASE_URL}/#collections`,
-            description: "High-quality pedestal wash basins — Polo, Sophia, Stargold and more",
+            description: "High-quality pedestal wash basins - Polo, Sophia, Stargold and more",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "One Piece Basin",
             url: `${BASE_URL}/#collections`,
-            description: "Elegant one piece wash basins — Damru, Glass, Capsule designs",
+            description: "Elegant one piece wash basins - Damru, Glass, Capsule designs",
           },
           {
             "@type": "ListItem",
             position: 4,
             name: "Wall Hung Toilet",
             url: `${BASE_URL}/#collections`,
-            description: "Modern wall hung toilets — Globus and Oscar designs",
+            description: "Modern wall hung toilets - Globus and Oscar designs",
           },
           {
             "@type": "ListItem",
             position: 5,
             name: "Water Closet",
             url: `${BASE_URL}/#collections`,
-            description: "EWC water closets — Floor Mount, Square EWC, Anglo, and Concealed options",
+            description: "EWC water closets - Floor Mount, Square EWC, Anglo, and Concealed options",
           },
           {
             "@type": "ListItem",
             position: 6,
             name: "Table Top Basin",
             url: `${BASE_URL}/#collections`,
-            description: "Stylish table top basins — Harrier, Tissot, Venito, Tork and more",
+            description: "Stylish table top basins - Harrier, Tissot, Venito, Tork and more",
           },
           {
             "@type": "ListItem",
@@ -274,14 +275,14 @@ export default function RootLayout({
             position: 8,
             name: "Pan & Urinal",
             url: `${BASE_URL}/#collections`,
-            description: "Orissa pans, urinals, sinks — complete sanitation range",
+            description: "Orissa pans, urinals, sinks - complete sanitation range",
           },
           {
             "@type": "ListItem",
             position: 9,
             name: "Designer Collection",
             url: `${BASE_URL}/#products`,
-            description: "Exclusive designer sanitaryware — Vitrosa Stargold, Polo, and premium basins",
+            description: "Exclusive designer sanitaryware - Vitrosa Stargold, Polo, and premium basins",
           },
         ],
       },
@@ -300,6 +301,18 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased text-text-dark bg-white">
+        {/* Google Analytics */}
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1SRVE3786Z" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1SRVE3786Z');
+          `}
+        </Script>
+
         {children}
       </body>
     </html>

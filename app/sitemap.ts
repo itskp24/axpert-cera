@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    // Category sections (anchor-based) — listed as important content signals
+    // Category sections (anchor-based) - listed as important content signals
     {
       url: `${BASE_URL}/#collections`,
       lastModified,

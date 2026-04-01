@@ -19,7 +19,7 @@ export default function Newsletter() {
         </h2>
 
         <p className="text-[14px] text-text-gray max-w-[520px] mx-auto mb-5 leading-[1.7]">
-          Get our complete {new Date().getFullYear()} product catalog — featuring One Piece Toilets, Pedestal Wash Basins,
+          Get our complete {new Date().getFullYear()} product catalog - featuring One Piece Toilets, Pedestal Wash Basins,
           Wall Hung Toilets, Water Closets, Table Top Basins, Designer Collections and more.
           Trusted by dealers across Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, and all of India.
         </p>

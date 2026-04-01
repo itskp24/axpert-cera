@@ -18,7 +18,7 @@ export default function Heritage() {
               <div className="relative aspect-[16/10] md:aspect-[16/9] w-full overflow-hidden shadow-2xl rounded-[4px] group">
                 <Image
                   src="https://res.cloudinary.com/dbuexdwty/image/upload/images/process/process3.png"
-                  alt="Axpert Cera Sanitaryware Manufacturing Plant in Gujarat India — ISO Certified Production Facility"
+                  alt="Axpert Cera Sanitaryware Manufacturing Plant in Gujarat India - ISO Certified Production Facility"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-[1.05]"
                   sizes="(max-width: 1024px) 100vw, 60vw"

@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#e8e9ed] via-[#d4d7df] to-[#c9c8c4]">
         <Image
           src="/hero_bathroom.png"
-          alt="Premium Ceramic Sanitaryware Bathroom by Axpert Cera — Manufacturer in Morbi, Gujarat India"
+          alt="Premium Ceramic Sanitaryware Bathroom by Axpert Cera - Manufacturer in Morbi, Gujarat India"
           fill
           priority
           className="object-cover object-right"

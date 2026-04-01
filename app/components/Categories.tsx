@@ -141,7 +141,7 @@ export default function Categories() {
             <h2 id="categories-heading" className="font-serif text-[clamp(32px,4vw,48px)] font-normal text-[#1A1A1A] leading-[1.1]">
               Explore by Category
             </h2>
-            <p className="sr-only">Browse our complete range of sanitaryware products including One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins and more — manufactured in Morbi, Gujarat.</p>
+            <p className="sr-only">Browse our complete range of sanitaryware products including One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins and more - manufactured in Morbi, Gujarat.</p>
           </div>
           <Link href="/catalog.pdf" download aria-label="Download Axpert Cera full product catalog PDF" className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.1em] uppercase text-black border-b border-black pb-1 hover:text-[#C4A484] hover:border-[#C4A484] transition-all">
             View Full Catalog
@@ -183,7 +183,7 @@ export default function Categories() {
                       className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
                         }`}
                     >
-                      <Image src={img} alt={`${CATEGORY_ALT[cat.name] ?? cat.name} — image ${imgIdx + 1}`} width={400} height={400} loading={imgIdx === 0 ? 'eager' : 'lazy'}
+                      <Image src={img} alt={`${CATEGORY_ALT[cat.name] ?? cat.name} - image ${imgIdx + 1}`} width={400} height={400} loading={imgIdx === 0 ? 'eager' : 'lazy'}
                         className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
@@ -214,7 +214,7 @@ export default function Categories() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-dark/70 backdrop-blur-sm"
           onClick={() => setModal(null)}
         >
-          {/* Modal panel — stop propagation so clicks inside don't close */}
+          {/* Modal panel - stop propagation so clicks inside don't close */}
           <div
             className="relative w-full max-w-5xl mx-4 md:mx-10 bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
             style={{ maxHeight: '90vh' }}
