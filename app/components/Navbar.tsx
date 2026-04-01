@@ -34,16 +34,22 @@ export default function Navbar() {
             AXPERT <span className="text-[12px] font-normal tracking-[0.25em] text-text-gray uppercase">CERA</span>
           </Link>
           <ul className="hidden lg:flex items-center gap-10 list-none">
-            {['Home', 'Products', 'Collections', 'About', 'Catalog'].map((item) => (
-              <li key={item}>
-                <Link
-                  href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
-                  onClick={() => setActiveItem(item)}
-                  className={`text-[13px] font-semibold tracking-[0.08em] text-navy relative pb-[4px] decoration-none transition-colors hover:text-navy-light ${activeItem === item ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-navy' : ''
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'Products', href: '#products' },
+              { label: 'Collections', href: '#collections' },
+              { label: 'About', href: '#about' },
+              { label: 'Catalog', href: '#catalog' },
+            ].map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  onClick={() => setActiveItem(item.label)}
+                  className={`text-[13px] font-semibold tracking-[0.08em] text-navy relative pb-[4px] decoration-none transition-colors hover:text-navy-light ${activeItem === item.label ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-navy' : ''
                     }`}
                 >
-                  {item}
-                </Link>
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>

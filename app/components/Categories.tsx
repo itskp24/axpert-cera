@@ -17,6 +17,19 @@ const FOLDER_MAP: Record<string, string> = {
   'Designer Collection': 'designercollection',
 };
 
+// SEO-optimised alt text per product category
+const CATEGORY_ALT: Record<string, string> = {
+  'One Piece Toilet': 'One Piece Toilet - Premium Ceramic Toilet by Axpert Cera, Manufacturer in Morbi Gujarat',
+  'Pedestal Wash Basin': 'Pedestal Wash Basin - Ceramic Wash Basin by Axpert Cera Morbi',
+  'One Piece Basin': 'One Piece Basin - Designer Ceramic Basin by Axpert Cera Gujarat',
+  'Wall Hung Toilet': 'Wall Hung Toilet - Modern Ceramic Toilet by Axpert Cera',
+  'Water Closet': 'Water Closet EWC - Ceramic Sanitaryware by Axpert Cera Morbi',
+  'Table Top Basin': 'Table Top Basin - Ceramic Wash Basin by Axpert Cera Gujarat',
+  'Wall Mount Wash Basin': 'Wall Mount Wash Basin - Space Saving Ceramic Basin by Axpert Cera',
+  'Pan & Urinal': 'Pan and Urinal - Orissa Pan Sanitation Products by Axpert Cera',
+  'Designer Collection': 'Designer Collection - Luxury Ceramic Sanitaryware by Axpert Cera Morbi',
+};
+
 
 
 const CATEGORY_NAMES = [
@@ -126,10 +139,11 @@ export default function Categories() {
           <div>
             <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#C4A484] mb-4">Our Catalog</div>
             <h2 id="categories-heading" className="font-serif text-[clamp(32px,4vw,48px)] font-normal text-[#1A1A1A] leading-[1.1]">
-              Explore by Category.
+              Explore by Category
             </h2>
+            <p className="sr-only">Browse our complete range of sanitaryware products including One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins and more — manufactured in Morbi, Gujarat.</p>
           </div>
-          <Link href="/catalog.pdf" download className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.1em] uppercase text-black border-b border-black pb-1 hover:text-[#C4A484] hover:border-[#C4A484] transition-all">
+          <Link href="/catalog.pdf" download aria-label="Download Axpert Cera full product catalog PDF" className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.1em] uppercase text-black border-b border-black pb-1 hover:text-[#C4A484] hover:border-[#C4A484] transition-all">
             View Full Catalog
           </Link>
         </div>
@@ -169,7 +183,7 @@ export default function Categories() {
                       className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
                         }`}
                     >
-                      <Image src={img} alt={cat.name} width={400} height={400}
+                      <Image src={img} alt={`${CATEGORY_ALT[cat.name] ?? cat.name} — image ${imgIdx + 1}`} width={400} height={400} loading={imgIdx === 0 ? 'eager' : 'lazy'}
                         className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
@@ -242,7 +256,7 @@ export default function Categories() {
                 <Image
                   key={modal.imageIndex}
                   src={modal.category.images[modal.imageIndex]}
-                  alt={modal.category.name}
+                  alt={`${modal.category.name} - Image ${modal.imageIndex + 1} of ${modal.category.images.length} | Axpert Cera Morbi`}
                   fill
                   className="object-contain transition-opacity duration-300"
                   priority
@@ -270,7 +284,7 @@ export default function Categories() {
                     className={`flex-none w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${i === modal.imageIndex ? 'border-black scale-105' : 'border-transparent opacity-50 hover:opacity-80'
                       }`}
                   >
-                    <Image src={img} alt={`thumb-${i}`} width={64} height={64} className="object-contain w-full h-full bg-white p-1" />
+                    <Image src={img} alt={`${modal.category.name} thumbnail ${i + 1}`} width={64} height={64} className="object-contain w-full h-full bg-white p-1" />
                   </button>
                 ))}
               </div>

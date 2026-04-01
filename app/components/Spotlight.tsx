@@ -21,7 +21,7 @@ export default function Spotlight() {
             <div className="bg-[#FAF9F6] rounded-[2px] overflow-hidden aspect-[4/3] flex items-center justify-center p-6 relative shadow-sm">
               <Image 
                 src={activeImg} 
-                alt="Serenity Freestanding Bath" 
+                alt="Serenity Freestanding Bathtub — Premium Ceramic Bath by Axpert Cera" 
                 fill
                 className="object-cover transition-all duration-500"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -37,7 +37,7 @@ export default function Spotlight() {
                     activeImg === img ? 'border-navy-dark' : 'border-transparent'
                   }`}
                 >
-                  <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className={`object-cover transition-all duration-500 group-hover:scale-110 ${activeImg === img ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`} />
+                  <Image src={img} alt={`Serenity Freestanding Bathtub view ${idx + 1} — Axpert Cera Premium Bath`} fill className={`object-cover transition-all duration-500 group-hover:scale-110 ${activeImg === img ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`} />
                 </div>
               ))}
               <div className="aspect-square bg-[#FAF9F6] rounded-[2px] flex flex-col items-center justify-center gap-1 text-[10px] text-text-gray tracking-[0.05em] cursor-pointer hover:bg-gray-200 transition-colors">

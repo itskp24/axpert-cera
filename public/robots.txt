@@ -1,0 +1,8 @@
+# Axpert Cera - robots.txt
+# https://www.axpertcera.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.axpertcera.com/sitemap.xml
