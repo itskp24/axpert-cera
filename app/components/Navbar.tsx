@@ -42,14 +42,14 @@ export default function Navbar() {
               { label: 'Catalog', href: '#catalog' },
             ].map((item) => (
               <li key={item.label}>
-                <a
+                <Link
                   href={item.href}
                   onClick={() => setActiveItem(item.label)}
                   className={`text-[13px] font-semibold tracking-[0.08em] text-navy relative pb-[4px] decoration-none transition-colors hover:text-navy-light ${activeItem === item.label ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-navy' : ''
                     }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
