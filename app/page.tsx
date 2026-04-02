@@ -12,9 +12,9 @@ import Footer from './components/Footer';
 const BASE_URL = 'https://www.axpertcera.com';
 
 export const metadata: Metadata = {
-  title: 'Premium Sanitaryware Manufacturer in Morbi, Gujarat | Axpert Cera',
+  title: 'Axpert Cera | Premium Ceramic Sanitaryware Manufacturer in India',
   description:
-    'Axpert Cera - ISO-certified sanitaryware manufacturer in Gujarat, India. Shop One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, Pan & Urinal, and Designer Collections. Supplying dealers and buyers in Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar and across all India.',
+    'Experience premium quality with Axpert Cera, a world-class ISO-certified sanitaryware manufacturer. Discover our exquisite range of One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, and exclusive Designer Collections. Proudly supplying dealers and buyers in Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar, and across all of India.',
   keywords: [
     'Axpert Cera',
     'Axpert Ceramic',
@@ -60,23 +60,23 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: 'Axpert Cera | Premium Sanitaryware Manufacturer in Morbi, Gujarat',
+    title: 'Axpert Cera | Premium Sanitaryware Manufacturer',
     description:
-      'Explore 125+ premium ceramic sanitaryware products - One Piece Toilets, Wash Basins, Wall Hung Toilets, Water Closets, Designer Collections. ISO-certified manufacturer in Gujarat, India. Supplying Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara and all India.',
+      'Explore 125+ exquisite, premium ceramic luxury sanitaryware products - One Piece Toilets, Wash Basins, Wall Hung Toilets, Water Closets, and exclusive Designer Collections. World-class ISO-certified manufacturer supplying Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, and all of India.',
     url: BASE_URL,
     images: [
       {
         url: '/hero_bathroom.png',
         width: 1200,
         height: 630,
-        alt: 'Axpert Cera Premium Sanitaryware - One Piece Toilet, Wash Basin, Designer Collection Manufacturer in Morbi Gujarat',
+        alt: 'Axpert Cera Premium Sanitaryware - One Piece Toilet, Wash Basin, Designer Collection Manufacturer',
       },
     ],
   },
   twitter: {
-    title: 'Axpert Cera | Sanitaryware Manufacturer in Morbi, Gujarat',
+    title: 'Axpert Cera | Premium Sanitaryware Manufacturer',
     description:
-      'One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets & Designer Collections by Axpert Cera - ISO-certified manufacturer in Gujarat. Serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara and all India.',
+      'Discover masterfully crafted One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets & luxurious Designer Collections by Axpert Cera. A world-class ISO-certified manufacturer serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, and all of India.',
     images: ['/hero_bathroom.png'],
   },
 };
