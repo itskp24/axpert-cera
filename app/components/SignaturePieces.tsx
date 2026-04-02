@@ -300,11 +300,6 @@ export default function SignaturePieces() {
               </div>
             )}
           </div>
-
-          {/* Keyboard hint */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/40 text-[11px] font-medium tracking-widest uppercase select-none">
-            ← → arrow keys to navigate · esc to close
-          </div>
         </div>
       )}
     </section>

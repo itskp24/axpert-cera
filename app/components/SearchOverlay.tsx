@@ -6,7 +6,7 @@ import Link from 'next/link';
 interface SearchOverlayProps {
   isOpen: boolean;
   onClose: () => void;
-  catalogItems: string[];
+  catalogItems: { id: string, image: string }[];
 }
 
 const NAME_FORMAT_MAP: Record<string, string> = {
@@ -28,7 +28,7 @@ const NAME_FORMAT_MAP: Record<string, string> = {
 
 export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchOverlayProps) {
   const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<{ id: string, image: string }[]>([]);
 
   // Lock body scroll when search is open
   useEffect(() => {
@@ -42,8 +42,8 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
 
   useEffect(() => {
     if (query.trim()) {
-      const filtered = catalogItems.filter(item => 
-        item.toLowerCase().includes(query.toLowerCase())
+      const filtered = catalogItems.filter(item =>
+        item.id.toLowerCase().includes(query.toLowerCase())
       );
       setSuggestions(filtered);
     } else {
@@ -79,7 +79,7 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
             <Search size={18} className="text-[#C4A484]" />
             <span className="uppercase tracking-[0.2em] text-[10px] font-bold">Catalog search</span>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="w-9 h-9 rounded-full bg-[#F5F5F3] flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-all duration-300"
           >
@@ -90,10 +90,10 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
 
       <div className="flex-1 overflow-y-auto bg-[#FAFAF9] custom-scrollbar">
         <div className="max-w-[1100px] mx-auto px-5 py-8 md:py-12">
-          
+
           {/* Main Input - More compact */}
           <div className="relative mb-10 md:mb-14">
-            <input 
+            <input
               type="text"
               autoFocus
               placeholder="Search by category or collection..."
@@ -105,7 +105,7 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-            
+
             {/* Results Grid */}
             <div className="lg:col-span-3">
               <div className="text-[9px] font-bold tracking-[0.25em] text-text-gray/60 uppercase mb-6 flex items-center gap-2">
@@ -115,18 +115,24 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {(query ? suggestions : catalogItems.slice(0, 10)).map((item, idx) => (
-                  <Link 
+                  <Link
                     key={idx}
-                    href={formatName(item).toLowerCase().includes('designer') ? "#products" : "#collections"}
-                    onClick={(e) => handleLinkClick(e, item)}
+                    href={formatName(item.id).toLowerCase().includes('designer') ? "#products" : "#collections"}
+                    onClick={(e) => handleLinkClick(e, item.id)}
                     className="group bg-white p-4.5 rounded-lg border border-[#EEE] hover:border-[#C4A484] hover:shadow-xl hover:shadow-[#C4A484]/5 transition-all duration-300 flex items-center gap-4"
                   >
-                    <div className="w-11 h-11 bg-[#FAFAF9] rounded-md flex items-center justify-center p-2 group-hover:bg-white transition-colors duration-300 border border-[#F5F5F3]">
-                      <Search size={14} className="text-[#CCC]" />
+                    <div className="w-11 h-11 bg-[#FAFAF9] rounded-md flex items-center justify-center overflow-hidden border border-[#F5F5F3] relative p-1 group-hover:bg-white transition-colors duration-300">
+                      {item.image ? (
+                        <div className="w-full h-full relative rounded overflow-hidden">
+                          <img src={item.image} alt={formatName(item.id)} className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                      ) : (
+                        <Search size={14} className="text-[#CCC]" />
+                      )}
                     </div>
                     <div className="flex-1">
                       <h4 className="text-[13px] font-semibold text-navy capitalize group-hover:text-navy-light transition-colors leading-tight">
-                        {formatName(item)}
+                        {formatName(item.id)}
                       </h4>
                       <p className="text-[8px] font-bold text-[#C4A484] uppercase tracking-widest mt-1">View collection</p>
                     </div>
@@ -148,7 +154,11 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
                 <ul className="space-y-3">
                   {['Designer Collection', 'One Piece Toilets', 'Water Closets'].map((link) => (
                     <li key={link}>
-                      <Link href="/" className="text-[12px] font-medium text-text-gray hover:text-[#C4A484] transition-colors flex items-center justify-between group">
+                      <Link
+                        href={link.toLowerCase().includes('designer') ? "#products" : "#collections"}
+                        onClick={(e) => handleLinkClick(e, link)}
+                        className="text-[12px] font-medium text-text-gray hover:text-[#C4A484] transition-colors flex items-center justify-between group"
+                      >
                         {link}
                         <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-1 transition-all" />
                       </Link>

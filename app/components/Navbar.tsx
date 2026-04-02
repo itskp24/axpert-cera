@@ -8,7 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState('Home');
   const [searchOpen, setSearchOpen] = useState(false);
-  const [catalogItems, setCatalogItems] = useState<string[]>([]);
+  const [catalogItems, setCatalogItems] = useState<{id: string, image: string}[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +19,11 @@ export default function Navbar() {
     fetch('/api/category-images')
       .then(res => res.json())
       .then(data => {
-        setCatalogItems(Object.keys(data));
+        const items = Object.keys(data).map(key => ({
+          id: key,
+          image: data[key][0]
+        }));
+        setCatalogItems(items);
       })
       .catch(() => { });
 
