@@ -30,8 +30,6 @@ const CATEGORY_ALT: Record<string, string> = {
   'Designer Collection': 'Designer Collection - Luxury Ceramic Sanitaryware by Axpert Cera Morbi',
 };
 
-
-
 const CATEGORY_NAMES = [
   'One Piece Toilet',
   'Pedestal Wash Basin',
@@ -54,34 +52,25 @@ interface ModalState {
   imageIndex: number;
 }
 
-export default function Categories() {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [currentImageIndices, setCurrentImageIndices] = useState<number[]>([]);
-  const [modal, setModal] = useState<ModalState | null>(null);
+interface CategoriesProps {
+  // Passed from page.tsx (ISR-fetched server data) so no client-side fetch needed
+  imageData: Record<string, string[]>;
+}
 
-  useEffect(() => {
-    fetch('/api/category-images')
-      .then(res => res.json())
-      .then((data: Record<string, string[]>) => {
-        const built: Category[] = CATEGORY_NAMES.map(name => {
-          const key = FOLDER_MAP[name];
-          const imgs = (key && data[key]?.length > 0) ? data[key] : ['/placeholder.png'];
-          const count = imgs.includes('/placeholder.png') ? 'Coming Soon' : `${imgs.length} Collection${imgs.length !== 1 ? 's' : ''}`;
-          return { name, count, images: imgs };
-        });
-        setCategories(built);
-        setCurrentImageIndices(built.map(() => 0));
-      })
-      .catch(() => {
-        const built: Category[] = CATEGORY_NAMES.map(name => ({
-          name,
-          count: 'Coming Soon',
-          images: ['/placeholder.png'],
-        }));
-        setCategories(built);
-        setCurrentImageIndices(built.map(() => 0));
-      });
-  }, []);
+export default function Categories({ imageData }: CategoriesProps) {
+  // Build categories from server-provided imageData (no runtime fetch required)
+  const initialCategories: Category[] = CATEGORY_NAMES.map(name => {
+    const key = FOLDER_MAP[name];
+    const imgs = (key && imageData[key]?.length > 0) ? imageData[key] : ['/placeholder.png'];
+    const count = imgs.includes('/placeholder.png') ? 'Coming Soon' : `${imgs.length} Collection${imgs.length !== 1 ? 's' : ''}`;
+    return { name, count, images: imgs };
+  });
+
+  const [categories] = useState<Category[]>(initialCategories);
+  const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
+    initialCategories.map(() => 0)
+  );
+  const [modal, setModal] = useState<ModalState | null>(null);
 
   // Auto-cycle card images every 4s
   useEffect(() => {
@@ -150,61 +139,41 @@ export default function Categories() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {categories.length === 0 ? (
-            Array.from({ length: 8 }).map((_, idx) => (
-              <div key={idx} className="bg-white p-4 h-[420px] flex flex-col border border-transparent">
-                <div className="relative flex-1 mb-2 bg-[#F8F8F6] animate-pulse rounded-sm"></div>
+          {categories.map((cat, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-4 h-[420px] group cursor-pointer flex flex-col transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#EBEBEB]"
+              onClick={() => openModal(cat, currentImageIndices[idx] ?? 0)}
+            >
+              <div className="relative flex-1 overflow-hidden mb-2">
+                {cat.images.map((img, imgIdx) => (
+                  <div
+                    key={imgIdx}
+                    className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                  >
+                    <Image src={img} alt={`${CATEGORY_ALT[cat.name] ?? cat.name} - image ${imgIdx + 1}`} width={400} height={400} loading={imgIdx === 0 ? 'eager' : 'lazy'}
+                      className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
 
-                <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
-                  <div className="w-4 h-1.5 bg-[#EBEBEB] animate-pulse rounded-full"></div>
-                  {Array.from({ length: 4 }).map((_, dIdx) => (
-                    <div key={`dot-${dIdx}`} className="w-1.5 h-1.5 bg-[#F8F8F6] animate-pulse rounded-full"></div>
-                  ))}
-                </div>
-
-                <div className="space-y-2 mt-1">
-                  <div className="w-16 h-2 bg-[#F8F8F6] animate-pulse rounded-sm"></div>
-                  <div className="w-3/4 h-5 bg-[#EBEBEB] animate-pulse rounded-sm"></div>
-                  <div className="w-1/3 h-3 bg-[#F8F8F6] animate-pulse rounded-sm"></div>
-                </div>
               </div>
-            ))
-          ) : (
-            categories.map((cat, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-4 h-[420px] group cursor-pointer flex flex-col transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#EBEBEB]"
-                onClick={() => openModal(cat, currentImageIndices[idx] ?? 0)}
-              >
-                <div className="relative flex-1 overflow-hidden mb-2">
-                  {cat.images.map((img, imgIdx) => (
-                    <div
-                      key={imgIdx}
-                      className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
-                        }`}
-                    >
-                      <Image src={img} alt={`${CATEGORY_ALT[cat.name] ?? cat.name} - image ${imgIdx + 1}`} width={400} height={400} loading={imgIdx === 0 ? 'eager' : 'lazy'}
-                        className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                  ))}
 
-                </div>
-
-                <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
-                  {cat.images.length > 1 && cat.images.map((_, dotIdx) => (
-                    <span key={dotIdx} className={`block rounded-full transition-all duration-500 ${dotIdx === (currentImageIndices[idx] ?? 0) ? 'w-4 h-1.5 bg-black' : 'w-1.5 h-1.5 bg-black/20'
-                      }`} />
-                  ))}
-                </div>
-
-                <div className="space-y-1">
-                  <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase">Category</p>
-                  <h3 className="font-serif text-[18px] text-[#1A1A1A] leading-tight">{cat.name}</h3>
-                  <p className="text-[11px] text-[#888] font-medium">{cat.count}</p>
-                </div>
+              <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
+                {cat.images.length > 1 && cat.images.map((_, dotIdx) => (
+                  <span key={dotIdx} className={`block rounded-full transition-all duration-500 ${dotIdx === (currentImageIndices[idx] ?? 0) ? 'w-4 h-1.5 bg-black' : 'w-1.5 h-1.5 bg-black/20'
+                    }`} />
+                ))}
               </div>
-            )))}
+
+              <div className="space-y-1">
+                <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase">Category</p>
+                <h3 className="font-serif text-[18px] text-[#1A1A1A] leading-tight">{cat.name}</h3>
+                <p className="text-[11px] text-[#888] font-medium">{cat.count}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

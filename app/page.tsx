@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { v2 as cloudinary } from 'cloudinary';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Categories from './components/Categories';
@@ -8,6 +9,9 @@ import Heritage from './components/Heritage';
 import Features from './components/Features';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+
+// ── ISR: regenerate this page at most once every 24 hours ──────────────────
+export const revalidate = 86400;
 
 const BASE_URL = 'https://www.axpertcera.com';
 
@@ -81,7 +85,37 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+// ── Server-side Cloudinary fetch (runs at build + every 24h via ISR) ────────
+async function fetchCloudinaryImages(): Promise<Record<string, string[]>> {
+  try {
+    cloudinary.config({ cloudinary_url: process.env.CLOUDINARY_URL });
+
+    const response = await cloudinary.api.resources({
+      type: 'upload',
+      prefix: 'images/',
+      max_results: 500,
+    });
+
+    const result: Record<string, string[]> = {};
+    response.resources.forEach((resource: { public_id: string; secure_url: string }) => {
+      const parts = resource.public_id.split('/');
+      if (parts.length >= 3) {
+        const categoryName = parts[parts.length - 2];
+        if (!result[categoryName]) result[categoryName] = [];
+        result[categoryName].push(resource.secure_url);
+      }
+    });
+    return result;
+  } catch (err) {
+    console.error('[ISR] Cloudinary fetch failed:', err);
+    return {};
+  }
+}
+
+export default async function Home() {
+  // Fetched once at build time, then cached and revalidated every 24h
+  const imageData = await fetchCloudinaryImages();
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -171,8 +205,8 @@ export default function Home() {
       <main className="min-h-screen">
         <Navbar />
         <Hero />
-        <Categories />
-        <SignaturePieces />
+        <Categories imageData={imageData} />
+        <SignaturePieces imageData={imageData} />
         <Spotlight />
         <Heritage />
         <Features />

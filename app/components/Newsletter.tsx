@@ -1,9 +1,43 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
+import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function Newsletter() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === 'loading') return;
+
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/send-catalog', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setMessage('Your catalog has been sent to your email! (Check your spam if not found)');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Submit error:', err);
+      setStatus('error');
+      setMessage('Network error. Please check your connection.');
+    }
   };
 
   return (
@@ -21,7 +55,7 @@ export default function Newsletter() {
         <p className="text-[14px] text-text-gray max-w-[520px] mx-auto mb-5 leading-[1.7]">
           Get our complete {new Date().getFullYear()} product catalog - featuring One Piece Toilets, Pedestal Wash Basins,
           Wall Hung Toilets, Water Closets, Table Top Basins, Designer Collections and more.
-          Trusted by dealers across Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, and all of India.
+          Trusted by dealers and buyers across India.
         </p>
 
         {/* Direct PDF download CTA */}
@@ -46,22 +80,58 @@ export default function Newsletter() {
         </div>
 
         {/* Email subscription */}
-        <p className="text-[12px] text-text-gray mb-4">Or subscribe by email for catalog updates:</p>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-[480px] mx-auto border-[1.5px] border-border rounded-sm overflow-hidden focus-within:border-navy transition-colors">
-          <label htmlFor="catalog-email" className="sr-only">Email address to receive Axpert Cera catalog</label>
-          <input
-            type="email"
-            id="catalog-email"
-            placeholder="Enter your email address"
-            className="flex-1 px-5 py-3.5 text-[13px] font-sans border-none outline-none bg-white text-text-dark placeholder:text-text-gray"
-            required
-          />
-          <button type="submit" className="bg-navy text-white px-7 py-4 text-[11px] font-bold tracking-[0.12em] uppercase hover:bg-navy-light transition-colors whitespace-nowrap">
-            Subscribe
-          </button>
-        </form>
+        <p className="text-[12px] text-text-gray mb-4">Or receive the catalog link directly in your inbox:</p>
+        
+        <div className="max-w-[480px] mx-auto">
+          <form 
+            onSubmit={handleSubmit} 
+            className={`flex flex-col sm:flex-row border-[1.5px] rounded-sm overflow-hidden transition-all duration-300 ${
+              status === 'error' ? 'border-red-500' : 'border-border'
+            } focus-within:border-navy`}
+          >
+            <label htmlFor="catalog-email" className="sr-only">Email address to receive Axpert Cera catalog</label>
+            <input
+              type="email"
+              id="catalog-email"
+              name="email"
+              placeholder="Enter your email address"
+              className="flex-1 px-5 py-3.5 text-[13px] font-sans border-none outline-none bg-white text-text-dark placeholder:text-text-gray"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === 'loading'}
+            />
+            <button 
+              type="submit" 
+              className="bg-navy text-white px-7 py-4 text-[11px] font-bold tracking-[0.12em] uppercase hover:bg-navy-light transition-colors whitespace-nowrap flex items-center justify-center gap-2 disabled:opacity-70"
+              disabled={status === 'loading'}
+            >
+              {status === 'loading' ? (
+                <>
+                  <Loader2 className="animate-spin" size={14} />
+                  Sending...
+                </>
+              ) : 'Send Catalog'}
+            </button>
+          </form>
+
+          {/* Feedback Messages */}
+          {status === 'success' && (
+            <div className="mt-4 flex items-center justify-center gap-2 text-green-600 text-[13px] animate-in fade-in slide-in-from-top-2">
+              <CheckCircle size={16} />
+              <span>{message}</span>
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="mt-4 flex items-center justify-center gap-2 text-red-500 text-[13px] animate-in fade-in slide-in-from-top-2">
+              <AlertCircle size={16} />
+              <span>{message}</span>
+            </div>
+          )}
+        </div>
 
       </div>
     </section>
   );
 }
+

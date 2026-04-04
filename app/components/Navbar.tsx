@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Search, Heart, User, ShoppingBag, X } from 'lucide-react';
+import { Search, Heart, User, ShoppingBag, X, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import SearchOverlay from './SearchOverlay';
 
@@ -8,7 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState('Home');
   const [searchOpen, setSearchOpen] = useState(false);
-  const [catalogItems, setCatalogItems] = useState<{id: string, image: string}[]>([]);
+  const [catalogItems, setCatalogItems] = useState<{ id: string, image: string }[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +66,14 @@ export default function Navbar() {
             >
               <Search size={20} strokeWidth={1.5} />
             </button>
+
+            <a href="mailto:info@axpertcera.com" className="flex items-center justify-center text-navy p-2 hover:bg-light-gray hover:text-[#C4A484] rounded-full transition-all group" aria-label="Email">
+              <Mail size={20} strokeWidth={1.5} />
+            </a>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Axpert+Cera+Gugliyana+Than+Gujarat" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center text-navy p-2 hover:bg-light-gray hover:text-[#C4A484] rounded-full transition-all group" aria-label="Location Map">
+              <MapPin size={20} strokeWidth={1.5} />
+            </a>
 
             <a href="https://wa.me/919429339212?text=Hello,%20I%20would%20like%20to%20inquire%20about%20Axpert%20Cera%20products." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center text-navy p-2 hover:bg-light-gray hover:text-[#25D366] rounded-full transition-all group" aria-label="WhatsApp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

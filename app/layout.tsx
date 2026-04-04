@@ -144,7 +144,9 @@ export default function RootLayout({
           },
         ],
         email: "info@axpertcera.com",
-        sameAs: [],
+        sameAs: [
+          "https://www.indiamart.com/axpert-cera/"
+        ],
         areaServed: {
           "@type": "GeoCircle",
           geoMidpoint: {

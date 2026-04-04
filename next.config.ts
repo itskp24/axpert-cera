@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         hostname: 'res.cloudinary.com',
       },
     ],
+    // Serve modern formats: AVIF first (30-50% smaller), then WebP fallback
+    formats: ['image/avif', 'image/webp'],
+    // Cache optimised images on Vercel CDN for 24 hours
+    minimumCacheTTL: 86400,
   },
 };
 

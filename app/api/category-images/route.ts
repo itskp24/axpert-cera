@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
 
+// Cache this API route response on Vercel for 24 hours (ISR)
+export const revalidate = 86400;
+
 // Cloudinary URL should be in .env
 cloudinary.config({
   cloudinary_url: process.env.CLOUDINARY_URL
