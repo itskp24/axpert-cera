@@ -105,6 +105,11 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.png",
   },
+  manifest: "/manifest.webmanifest",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1A2744" },
+  ],
   category: "Manufacturing",
 };
 

@@ -3,38 +3,18 @@ import { MetadataRoute } from 'next';
 const BASE_URL = 'https://www.axpertcera.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return [
     {
       url: BASE_URL,
-      lastModified,
+      // Fixed date - do NOT use new Date() here, it changes every build
+      // and confuses Google. Update this manually only when content changes.
+      lastModified: new Date('2026-04-04'),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    // Category sections (anchor-based) - listed as important content signals
-    {
-      url: `${BASE_URL}/#collections`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/#products`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/#about`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    // Catalog download
     {
       url: `${BASE_URL}/catalog.pdf`,
-      lastModified,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
