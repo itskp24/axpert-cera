@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CATEGORIES } from '../utils/constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import GalleryModal from './GalleryModal';
 
 interface Category {
   name: string;
@@ -33,6 +34,11 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
     initialCategories.map(() => 0)
   );
 
+  // Gallery Modal State
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryTitle, setGalleryTitle] = useState('');
+
   // Auto-cycle card images every 3s
   useEffect(() => {
     if (!categories.length) return;
@@ -46,6 +52,16 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
     }, 3000);
     return () => clearInterval(timer);
   }, [categories]);
+
+  const handleCardClick = (e: React.MouseEvent, cat: Category) => {
+    // Strictly for mobile - check width
+    if (window.innerWidth < 1024) {
+      e.preventDefault();
+      setGalleryImages(cat.images);
+      setGalleryTitle(cat.name);
+      setGalleryOpen(true);
+    }
+  };
 
   return (
     <section id="collections" className={`pb-4 ${variant === 'premium' ? 'bg-white pt-12' : 'bg-[#F8F8F6] pt-20'}`} aria-labelledby="categories-heading">
@@ -73,6 +89,7 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
             <Link
               href={`/categories/${cat.slug}`}
               key={idx}
+              onClick={(e) => handleCardClick(e, cat)}
               className={`group cursor-pointer flex flex-col transition-all duration-500 block relative ${
                 variant === 'premium' 
                   ? 'bg-white p-3 md:p-4 h-[340px] md:h-[440px] border border-[#EBEBEB] hover:border-[#C4A484] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]' 
@@ -135,6 +152,13 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
           ))}
         </div>
       </div>
+
+      <GalleryModal 
+        isOpen={galleryOpen}
+        onClose={() => setGalleryOpen(false)}
+        images={galleryImages}
+        title={galleryTitle}
+      />
     </section>
   );
 }

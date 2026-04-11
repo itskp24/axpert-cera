@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { getCategoryBySlug, CATEGORIES } from '../../utils/constants';
 import { fetchCloudinaryImages } from '../../utils/cloudinary';
+import ProductGrid from '../../components/ProductGrid';
 
 export const revalidate = 86400;
 
@@ -111,29 +112,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               Images arriving shortly...
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {images.map((img, idx) => (
-                <div key={idx} className="bg-white p-8 group flex flex-col items-center shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg">
-                  <div className="relative w-full aspect-square mb-6">
-                    <Image 
-                      src={img} 
-                      alt={`${category.seoAlt} - Product ${idx + 1}`}
-                      fill
-                      className="object-contain scale-95 group-hover:scale-105 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                  <div className="w-full pt-6 border-t border-[#F0F0EE] flex justify-between items-center">
-                     <span className="text-[12px] font-bold tracking-[0.1em] uppercase text-[#C4A484]">
-                       Axpert Design
-                     </span>
-                     <span className="text-[14px] text-[#1A1A1A] font-serif">
-                       Collection {idx + 1}
-                     </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ProductGrid 
+              images={images} 
+              categoryName={category.name} 
+              seoAlt={category.seoAlt} 
+            />
           )}
 
           <div className="mt-24 text-center">

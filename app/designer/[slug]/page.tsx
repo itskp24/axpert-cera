@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { getDesignerCollectionBySlug, DESIGNER_COLLECTIONS } from '../../utils/constants';
 import { fetchCloudinaryImages } from '../../utils/cloudinary';
+import ProductGrid from '../../components/ProductGrid';
 
 export const revalidate = 86400;
 
@@ -111,27 +112,13 @@ export default async function DesignerPage({ params }: { params: Promise<{ slug:
               Designer collection preparing...
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {images.map((img, idx) => (
-                <div key={idx} className="bg-[#FAFAF9] p-6 group flex flex-col items-center border border-transparent hover:border-[#EBEBEB] transition-all duration-500 hover:shadow-2xl rounded-sm">
-                  <div className="relative w-full aspect-[4/5] mb-6 overflow-hidden flex items-center justify-center p-4">
-                    <Image
-                      src={img}
-                      alt={`${category.seoAlt} - View ${idx + 1}`}
-                      fill
-                      className="object-contain scale-[1.15] group-hover:scale-[1.25] transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
-                  </div>
-                  <div className="w-full text-center">
-                    <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase mb-2">Signature Piece</p>
-                    <h3 className="text-[16px] text-[#1A1A1A] font-serif leading-tight">
-                      Collection {String(idx + 1).padStart(2, '0')}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ProductGrid 
+              images={images} 
+              categoryName={category.name} 
+              seoAlt={category.seoAlt} 
+              columns="4"
+              variant="designer"
+            />
           )}
 
           <div className="mt-24 text-center">
