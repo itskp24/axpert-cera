@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { LATEST_COLLECTION_YEAR } from '../utils/constants';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -53,21 +55,19 @@ export default function Newsletter() {
         </h2>
 
         <p className="text-[14px] text-text-gray max-w-[520px] mx-auto mb-5 leading-[1.7]">
-          Get our complete {new Date().getFullYear()} product catalog - featuring One Piece Toilets, Pedestal Wash Basins,
+          Get our complete {LATEST_COLLECTION_YEAR} product catalog - featuring One Piece Toilets, Pedestal Wash Basins,
           Wall Hung Toilets, Water Closets, Table Top Basins, Designer Collections and more.
           Trusted by dealers and buyers across India.
         </p>
 
         {/* Direct PDF download CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="/catalog.pdf"
-            download="Axpert_Cera_Catalog.pdf"
-            aria-label="Download Axpert Cera Product Catalog PDF"
+          <Link
+            href="/"
             className="bg-navy text-white px-10 py-4 text-[12px] font-bold tracking-[0.12em] uppercase hover:bg-navy-light transition-colors"
           >
-            Download Catalog PDF
-          </a>
+            Go to Home Page
+          </Link>
           <a
             href="https://wa.me/919429339212?text=Hello,%20I%20would%20like%20to%20request%20the%20Axpert%20Cera%20product%20catalog."
             target="_blank"

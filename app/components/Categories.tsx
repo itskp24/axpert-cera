@@ -1,78 +1,39 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-
-const FOLDER_MAP: Record<string, string> = {
-  'One Piece Toilet': 'onepiecetoilet',
-  'Pedestal Wash Basin': 'pedestalwashbasin',
-  'One Piece Basin': 'onepiecebasin',
-  'Wall Hung Toilet': 'wallhungtoilet',
-  'Water Closet': 'watercloset',
-  'Table Top Basin': 'tabletopbasin',
-  'Wall Mount Wash Basin': 'wallmountwashbasin',
-  'Pan & Urinal': 'panurinal',
-  'Designer Collection': 'designercollection',
-};
-
-// SEO-optimised alt text per product category
-const CATEGORY_ALT: Record<string, string> = {
-  'One Piece Toilet': 'One Piece Toilet - Premium Ceramic Toilet by Axpert Cera, Manufacturer in Morbi Gujarat',
-  'Pedestal Wash Basin': 'Pedestal Wash Basin - Ceramic Wash Basin by Axpert Cera Morbi',
-  'One Piece Basin': 'One Piece Basin - Designer Ceramic Basin by Axpert Cera Gujarat',
-  'Wall Hung Toilet': 'Wall Hung Toilet - Modern Ceramic Toilet by Axpert Cera',
-  'Water Closet': 'Water Closet EWC - Ceramic Sanitaryware by Axpert Cera Morbi',
-  'Table Top Basin': 'Table Top Basin - Ceramic Wash Basin by Axpert Cera Gujarat',
-  'Wall Mount Wash Basin': 'Wall Mount Wash Basin - Space Saving Ceramic Basin by Axpert Cera',
-  'Pan & Urinal': 'Pan and Urinal - Orissa Pan Sanitation Products by Axpert Cera',
-  'Designer Collection': 'Designer Collection - Luxury Ceramic Sanitaryware by Axpert Cera Morbi',
-};
-
-const CATEGORY_NAMES = [
-  'One Piece Toilet',
-  'Pedestal Wash Basin',
-  'One Piece Basin',
-  'Wall Hung Toilet',
-  'Water Closet',
-  'Table Top Basin',
-  'Wall Mount Wash Basin',
-  'Pan & Urinal',
-];
+import { CATEGORIES } from '../utils/constants';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Category {
   name: string;
   count: string;
   images: string[];
-}
-
-interface ModalState {
-  category: Category;
-  imageIndex: number;
+  slug: string;
 }
 
 interface CategoriesProps {
-  // Passed from page.tsx (ISR-fetched server data) so no client-side fetch needed
   imageData: Record<string, string[]>;
+  variant?: 'default' | 'premium';
+  hideHeader?: boolean;
 }
 
-export default function Categories({ imageData }: CategoriesProps) {
-  // Build categories from server-provided imageData (no runtime fetch required)
-  const initialCategories: Category[] = CATEGORY_NAMES.map(name => {
-    const key = FOLDER_MAP[name];
+export default function Categories({ imageData, variant = 'default', hideHeader = false }: CategoriesProps) {
+  // Use the constant mapping to build the UI array
+  const initialCategories: Category[] = CATEGORIES.map(catInfo => {
+    const key = catInfo.cloudinaryFolder;
     const imgs = (key && imageData[key]?.length > 0) ? imageData[key] : ['/placeholder.png'];
     const count = imgs.includes('/placeholder.png') ? 'Coming Soon' : `${imgs.length} Collection${imgs.length !== 1 ? 's' : ''}`;
-    return { name, count, images: imgs };
+    return { name: catInfo.name, count, images: imgs, slug: catInfo.slug };
   });
 
   const [categories] = useState<Category[]>(initialCategories);
   const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
     initialCategories.map(() => 0)
   );
-  const [modal, setModal] = useState<ModalState | null>(null);
 
-  // Auto-cycle card images every 4s
+  // Auto-cycle card images every 3s
   useEffect(() => {
     if (!categories.length) return;
     const timer = setInterval(() => {
@@ -82,185 +43,98 @@ export default function Categories({ imageData }: CategoriesProps) {
           return imgs.length > 1 ? (idx + 1) % imgs.length : idx;
         })
       );
-    }, 4000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [categories]);
 
-  // Modal navigation
-  const modalNext = useCallback(() => {
-    setModal(prev => {
-      if (!prev) return null;
-      const nextIdx = (prev.imageIndex + 1) % prev.category.images.length;
-      return { ...prev, imageIndex: nextIdx };
-    });
-  }, []);
-
-  const modalPrev = useCallback(() => {
-    setModal(prev => {
-      if (!prev) return null;
-      const prevIdx = (prev.imageIndex - 1 + prev.category.images.length) % prev.category.images.length;
-      return { ...prev, imageIndex: prevIdx };
-    });
-  }, []);
-
-  // Keyboard navigation
-  useEffect(() => {
-    if (!modal) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') modalNext();
-      if (e.key === 'ArrowLeft') modalPrev();
-      if (e.key === 'Escape') setModal(null);
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [modal, modalNext, modalPrev]);
-
-  const openModal = (cat: Category, startIndex: number) => {
-    setModal({ category: cat, imageIndex: startIndex });
-  };
-
   return (
-    <section id="collections" className="pt-20 pb-4 bg-[#F8F8F6]" aria-labelledby="categories-heading">
+    <section id="collections" className={`pb-4 ${variant === 'premium' ? 'bg-white pt-12' : 'bg-[#F8F8F6] pt-20'}`} aria-labelledby="categories-heading">
       <div className="max-w-[1440px] mx-auto px-5 md:px-10">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
-          <div>
-            <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#C4A484] mb-4">Our Catalog</div>
-            <h2 id="categories-heading" className="font-serif text-[clamp(32px,4vw,48px)] font-normal text-[#1A1A1A] leading-[1.1]">
-              Explore by Category
-            </h2>
-            <p className="sr-only">Browse our complete range of sanitaryware products including One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins and more - manufactured in Morbi, Gujarat.</p>
+        {!hideHeader && (
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+            <div>
+              <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#C4A484] mb-4 font-sans">TIMELESS ELEGANCE</div>
+              <h2 id="categories-heading" className="font-serif text-[clamp(32px,4vw,48px)] font-normal text-[#1A1A1A] leading-[1.1]">
+                Classic Collection
+              </h2>
+              <p className="sr-only">Browse our complete range of sanitaryware products.</p>
+            </div>
+            <Link href="/catalog.pdf" download aria-label="Download Axpert Cera full product catalog PDF" className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.1em] uppercase text-black border-b border-black pb-1 hover:text-[#C4A484] hover:border-[#C4A484] transition-all font-sans">
+              View Full Catalog
+            </Link>
           </div>
-          <Link href="/catalog.pdf" download aria-label="Download Axpert Cera full product catalog PDF" className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.1em] uppercase text-black border-b border-black pb-1 hover:text-[#C4A484] hover:border-[#C4A484] transition-all">
-            View Full Catalog
-          </Link>
-        </div>
+        )}
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className={`grid gap-4 ${variant === 'premium' ? 'grid-cols-2 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-2 lg:grid-cols-4'}`}>
           {categories.map((cat, idx) => (
-            <div
+            <Link
+              href={`/categories/${cat.slug}`}
               key={idx}
-              className="bg-white p-4 h-[420px] group cursor-pointer flex flex-col transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#EBEBEB]"
-              onClick={() => openModal(cat, currentImageIndices[idx] ?? 0)}
+              className={`group cursor-pointer flex flex-col transition-all duration-500 block relative ${
+                variant === 'premium' 
+                  ? 'bg-white p-3 md:p-4 h-[340px] md:h-[440px] border border-[#EBEBEB] hover:border-[#C4A484] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]' 
+                  : 'bg-white p-4 md:p-6 h-[340px] md:h-[460px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-[#EBEBEB] hover:border-[#1A1A1A]'}`}
             >
-              <div className="relative flex-1 overflow-hidden mb-2">
-                {cat.images.map((img, imgIdx) => (
-                  <div
-                    key={imgIdx}
-                    className={`absolute inset-0 p-3 flex items-center justify-center bg-white transition-opacity duration-1000 ${imgIdx === (currentImageIndices[idx] ?? 0) ? 'opacity-100' : 'opacity-0'
-                      }`}
+              <div className={`relative flex-1 overflow-hidden flex items-center justify-center transition-all duration-700 ${
+                variant === 'premium' 
+                  ? 'bg-[#FAFAF9] h-[180px] md:h-[280px] mb-4 md:mb-6' 
+                  : 'bg-white mb-6 md:mb-8 p-4 md:p-8 group-hover:bg-[#F5F5F3] h-full'}`}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentImageIndices[idx]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 flex items-center justify-center p-4 md:p-6"
                   >
-                    <Image src={img} alt={`${CATEGORY_ALT[cat.name] ?? cat.name} - image ${imgIdx + 1}`} width={400} height={400} loading={imgIdx === 0 ? 'eager' : 'lazy'}
-                      className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
+                    <Image
+                      src={cat.images[currentImageIndices[idx]]}
+                      alt={`${cat.name} rendering view`}
+                      width={600}
+                      height={600}
+                      quality={90}
+                      className={`object-contain w-full h-full transition-transform duration-700 ${variant === 'premium' ? 'scale-95 group-hover:scale-105' : 'group-hover:scale-105'}`}
                     />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              <div className={`flex items-end justify-between mt-auto relative z-10 ${variant === 'premium' ? 'px-1 md:px-2' : ''}`}>
+                <div className="flex-1 pr-2">
+                  <p className="text-[8px] md:text-[9px] font-bold tracking-[0.2em] text-[#C4A484] uppercase mb-1 md:mb-1.5 font-sans">Series Collection</p>
+                  
+                  <h3 className={`font-sans font-medium text-[#1A1A1A] leading-tight mb-1 transition-colors duration-300 ${
+                    variant === 'premium' 
+                      ? 'text-[16px] md:text-[22px] group-hover:text-[#C4A484]' 
+                      : 'text-[15px] md:text-[20px] font-serif'}`}>
+                    {cat.name}
+                  </h3>
+                  <p className="text-[10px] md:text-[11px] text-[#666] font-normal tracking-wide font-sans">{cat.count}</p>
+                </div>
+                
+                {variant === 'premium' ? (
+                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-[#1A1A1A] overflow-hidden">
+                    <svg className="w-4 h-4 md:w-5 md:h-5 -translate-x-1 transition-transform duration-500 group-hover:translate-x-1 group-hover:text-[#C4A484]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </div>
-                ))}
-
+                ) : (
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1A1A1A] text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#C4A484] flex-shrink-0">
+                    <svg width="12" height="12" className="md:w-[14px] md:h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </div>
+                )}
               </div>
-
-              <div className="h-4 flex items-center justify-center gap-1.5 mb-3">
-                {cat.images.length > 1 && cat.images.map((_, dotIdx) => (
-                  <span key={dotIdx} className={`block rounded-full transition-all duration-500 ${dotIdx === (currentImageIndices[idx] ?? 0) ? 'w-4 h-1.5 bg-black' : 'w-1.5 h-1.5 bg-black/20'
-                    }`} />
-                ))}
-              </div>
-
-              <div className="space-y-1">
-                <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase">Category</p>
-                <h3 className="font-serif text-[18px] text-[#1A1A1A] leading-tight">{cat.name}</h3>
-                <p className="text-[11px] text-[#888] font-medium">{cat.count}</p>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
-
-      {/* ── Full-screen Image Modal ── */}
-      {modal && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-dark/70 backdrop-blur-sm"
-          onClick={() => setModal(null)}
-        >
-          {/* Modal panel - stop propagation so clicks inside don't close */}
-          <div
-            className="relative w-full max-w-5xl mx-4 md:mx-10 bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
-            style={{ maxHeight: '90vh' }}
-            onClick={e => e.stopPropagation()}
-          >
-            {/* Top bar */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[#F0F0EE]">
-              <div>
-                <p className="text-[9px] font-bold tracking-[0.25em] text-[#C4A484] uppercase mb-0.5">Category</p>
-                <h3 className="font-serif text-[20px] text-[#1A1A1A] leading-tight">{modal.category.name}</h3>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-[12px] text-[#999] font-medium tabular-nums">
-                  {modal.imageIndex + 1} / {modal.category.images.length}
-                </span>
-                <button
-                  onClick={() => setModal(null)}
-                  className="w-9 h-9 rounded-full bg-[#F5F5F3] flex items-center justify-center text-[#555] hover:bg-black hover:text-white transition-all"
-                >
-                  <X size={18} />
-                </button>
-              </div>
-            </div>
-
-            {/* Image area */}
-            <div className="relative flex-1 bg-[#FAFAF9] flex items-center justify-center" style={{ minHeight: '60vh' }}>
-
-              {/* Prev button */}
-              {modal.category.images.length > 1 && (
-                <button
-                  onClick={modalPrev}
-                  className="absolute left-4 z-10 w-11 h-11 rounded-full bg-white shadow-md flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-200"
-                >
-                  <ChevronLeft size={22} />
-                </button>
-              )}
-
-              <div className="relative w-full h-full p-8 md:p-16" style={{ minHeight: '60vh' }}>
-                <Image
-                  key={modal.imageIndex}
-                  src={modal.category.images[modal.imageIndex]}
-                  alt={`${modal.category.name} - Image ${modal.imageIndex + 1} of ${modal.category.images.length} | Axpert Cera Morbi`}
-                  fill
-                  className="object-contain transition-opacity duration-300"
-                  priority
-                />
-              </div>
-
-              {/* Next button */}
-              {modal.category.images.length > 1 && (
-                <button
-                  onClick={modalNext}
-                  className="absolute right-4 z-10 w-11 h-11 rounded-full bg-white shadow-md flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-200"
-                >
-                  <ChevronRight size={22} />
-                </button>
-              )}
-            </div>
-
-            {/* Dot indicator + thumbnail strip */}
-            {modal.category.images.length > 1 && (
-              <div className="px-6 py-4 border-t border-[#F0F0EE] flex gap-3 overflow-x-auto scrollbar-none">
-                {modal.category.images.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setModal(prev => prev ? { ...prev, imageIndex: i } : null)}
-                    className={`flex-none w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${i === modal.imageIndex ? 'border-black scale-105' : 'border-transparent opacity-50 hover:opacity-80'
-                      }`}
-                  >
-                    <Image src={img} alt={`${modal.category.name} thumbnail ${i + 1}`} width={64} height={64} className="object-contain w-full h-full bg-white p-1" />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

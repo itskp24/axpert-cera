@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Heritage() {
   return (
@@ -77,15 +78,21 @@ export default function Heritage() {
               </div>
             </div>
 
-            <div>
-              <a
-                href="#collections"
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/products"
                 className="group inline-flex items-center gap-4 bg-white text-navy-dark px-8 py-4 text-[12px] font-bold tracking-[0.1em] uppercase hover:bg-[#C4A484] hover:text-white transition-all duration-500"
                 aria-label="Explore Axpert Cera product collections"
               >
-                Explore Our Collections
+                Explore All Products
                 <span className="w-8 h-[1px] bg-navy-dark group-hover:bg-white group-hover:w-12 transition-all duration-500"></span>
-              </a>
+              </Link>
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-4 border border-white/20 text-white px-8 py-4 text-[12px] font-bold tracking-[0.1em] uppercase hover:bg-white hover:text-navy-dark transition-all duration-500"
+              >
+                Our Full Story
+              </Link>
             </div>
 
           </div>

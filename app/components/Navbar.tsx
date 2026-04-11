@@ -2,13 +2,35 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Heart, User, ShoppingBag, X, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import SearchOverlay from './SearchOverlay';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState('Home');
+  const [activeItem, setActiveItem] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [catalogItems, setCatalogItems] = useState<{ id: string, image: string }[]>([]);
+
+  // Conditional Active State: Only underline when on the homepage (pathname === '/')
+  // On subpages (Product/Categories), we hide all underlines for a cleaner look.
+  useEffect(() => {
+    const handleHashAndActive = () => {
+      if (pathname === '/products') {
+        setActiveItem('Products');
+      } else if (pathname === '/about') {
+        setActiveItem('About');
+      } else if (pathname === '/catalog') {
+        setActiveItem('Catalog');
+      } else if (pathname === '/') {
+        setActiveItem('Home');
+      } else {
+        setActiveItem(''); // Clear active state for specific product/category pages
+      }
+    };
+
+    handleHashAndActive();
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,16 +64,15 @@ export default function Navbar() {
           <ul className="hidden lg:flex flex-1 justify-center items-center gap-10 list-none">
             {[
               { label: 'Home', href: '/' },
-              { label: 'Products', href: '#products' },
-              { label: 'Collections', href: '#collections' },
-              { label: 'About', href: '#about' },
-              { label: 'Catalog', href: '#catalog' },
+              { label: 'Products', href: '/products' },
+              { label: 'About', href: '/about' },
+              { label: 'Catalog', href: '/catalog' },
             ].map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
                   onClick={() => setActiveItem(item.label)}
-                  className={`text-[13px] font-semibold tracking-[0.08em] text-navy relative py-1 decoration-none transition-colors hover:text-navy-light ${activeItem === item.label ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-navy' : ''
+                  className={`text-[13px] font-semibold tracking-[0.08em] text-navy relative py-1 decoration-none transition-colors hover:text-navy-light ${pathname === item.href ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-navy' : ''
                     }`}
                 >
                   {item.label}

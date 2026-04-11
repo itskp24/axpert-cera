@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { v2 as cloudinary } from 'cloudinary';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Categories from './components/Categories';
@@ -85,33 +84,7 @@ export const metadata: Metadata = {
   },
 };
 
-// ── Server-side Cloudinary fetch (runs at build + every 24h via ISR) ────────
-async function fetchCloudinaryImages(): Promise<Record<string, string[]>> {
-  try {
-    cloudinary.config({ cloudinary_url: process.env.CLOUDINARY_URL });
-
-    const response = await cloudinary.api.resources({
-      type: 'upload',
-      prefix: 'images/',
-      max_results: 500,
-    });
-
-    const result: Record<string, string[]> = {};
-    response.resources.forEach((resource: { public_id: string; secure_url: string }) => {
-      const parts = resource.public_id.split('/');
-      if (parts.length >= 3) {
-        const categoryName = parts[parts.length - 2];
-        if (!result[categoryName]) result[categoryName] = [];
-        result[categoryName].push(resource.secure_url);
-      }
-    });
-    return result;
-  } catch (err) {
-    console.error('[ISR] Cloudinary fetch failed:', err);
-    return {};
-  }
-}
-
+import { fetchCloudinaryImages } from './utils/cloudinary';
 export default async function Home() {
   // Fetched once at build time, then cached and revalidated every 24h
   const imageData = await fetchCloudinaryImages();
@@ -130,25 +103,19 @@ export default async function Home() {
         '@type': 'ListItem',
         position: 2,
         name: 'Products',
-        item: `${BASE_URL}/#collections`,
+        item: `${BASE_URL}/products`,
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Designer Collection',
-        item: `${BASE_URL}/#products`,
+        name: 'About Us',
+        item: `${BASE_URL}/about`,
       },
       {
         '@type': 'ListItem',
         position: 4,
-        name: 'About Us',
-        item: `${BASE_URL}/#about`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 5,
-        name: 'Request Catalog',
-        item: `${BASE_URL}/#catalog`,
+        name: 'Download Catalog',
+        item: `${BASE_URL}/catalog`,
       },
     ],
   };

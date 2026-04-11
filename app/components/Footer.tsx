@@ -3,15 +3,15 @@ import Link from 'next/link';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const CATEGORY_LINKS = [
-  { label: 'One Piece Toilet', href: '/#collections' },
-  { label: 'Pedestal Wash Basin', href: '/#collections' },
-  { label: 'One Piece Basin', href: '/#collections' },
-  { label: 'Wall Hung Toilet', href: '/#collections' },
-  { label: 'Water Closet', href: '/#collections' },
-  { label: 'Table Top Basin', href: '/#collections' },
-  { label: 'Wall Mount Wash Basin', href: '/#collections' },
-  { label: 'Pan & Urinal', href: '/#collections' },
-  { label: 'Designer Collection', href: '/#products' },
+  { label: 'One Piece Toilet', href: '/categories/one-piece-toilet' },
+  { label: 'Pedestal Wash Basin', href: '/categories/pedestal-wash-basin' },
+  { label: 'One Piece Basin', href: '/categories/one-piece-basin' },
+  { label: 'Wall Hung Toilet', href: '/categories/wall-hung-toilet' },
+  { label: 'Water Closet', href: '/categories/water-closet' },
+  { label: 'Table Top Basin', href: '/categories/table-top-basin' },
+  { label: 'Wall Mount Wash Basin', href: '/categories/wall-mount-wash-basin' },
+  { label: 'Pan & Urinal', href: '/categories/pan-and-urinal' },
+  { label: 'Designer Collection', href: '/products' },
 ];
 
 export default function Footer() {
@@ -76,12 +76,8 @@ export default function Footer() {
 
             <h4 className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4 mt-8">Quick Links</h4>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/#about" className="text-[13px] text-white/65 hover:text-white transition-colors">About Us</Link></li>
-              <li>
-                <Link href="/catalog.pdf" download aria-label="Download Axpert Cera Product Catalog PDF" className="text-[13px] text-white/65 hover:text-white transition-colors">
-                  Download Catalog
-                </Link>
-              </li>
+              <li><Link href="/about" className="text-[13px] text-white/65 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/catalog" className="text-[13px] text-white/65 hover:text-white transition-colors">Catalog PDF</Link></li>
             </ul>
           </div>
 

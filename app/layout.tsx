@@ -7,11 +7,11 @@ const BASE_URL = "https://www.axpertcera.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Sanitaryware Manufacturer & Supplier in India | Wash Basin, One Piece Toilet, Wall Hung Toilet | Axpert Cera',
+    default: 'Premium Sanitaryware Manufacturer in India | One Piece Toilet, Wash Basin, Wall Hung WC | Axpert Cera',
     template: "%s | Axpert Cera",
   },
   description:
-    "Axpert Cera is a world-class, ISO-certified sanitaryware manufacturer, crafting luxury ceramic products including One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, and exclusive Designer Collections. Serving dealers and buyers with premium quality across Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar, and pan-India.",
+    "Axpert Cera is a premier ISO-certified manufacturer of high-grade ceramic sanitaryware. We masterfully craft a luxury range of One Piece Toilets, Pedestal Wash Basins, and Wall Hung WCs for modern bathrooms. Serving architects, dealers, and homes across Ahmedabad, Surat, Mumbai, Delhi, Bangalore, and pan-India with premium vitreous china quality.",
   keywords: [
     "Axpert Cera",
     "Axpert Ceramic",
@@ -51,6 +51,22 @@ export const metadata: Metadata = {
     "sanitaryware manufacturer India",
     "premium ceramic bathroom products India",
     "ceramic sanitaryware supplier India",
+    "Axpert Ceramic Manufacturer",
+    "Sanitaryware Supplier Ahmedabad",
+    "One Piece Toilet Mumbai",
+    "Ceramic Wash Basin Surat",
+    "Wall Hung WC Delhi",
+    "Water Closet Price Bangalore",
+    "Sanitaryware Dealer Pune",
+    "Vitreous China Products India",
+    "Counter Top Wash Basin Hyderabad",
+    "Sanitaryware Exporter Gujarat",
+    "Designer Bathroom Fittings India",
+    "EWC Toilet Manufacturer",
+    "Premium Ceramic Products Vadodara",
+    "Luxury Sanitaryware Chennai",
+    "Bathroom Products Kolkata",
+    "Ceramic Industry India",
   ],
   authors: [{ name: "Axpert Cera", url: BASE_URL }],
   creator: "Axpert Cera",
@@ -77,15 +93,15 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: BASE_URL,
     siteName: "Axpert Cera",
-    title: "Axpert Cera | Premium Sanitaryware Manufacturer",
+    title: "Axpert Cera | Premium Ceramic Sanitaryware Manufacturer India",
     description:
-      "Discover Axpert Cera's premium range of luxury, ISO-certified ceramic sanitaryware. We masterfully craft One Piece Toilets, Pedestal Basins, Wall Hung Toilets, and exclusive Designer Collections. Supplying across Morbi, Ahmedabad, Surat, and all over India.",
+      "Discover Axpert Cera's premium range of ISO-certified sanitaryware. From luxury One Piece Toilets to Designer Basins, we provide vitreous china solutions for modern bathrooms. Supplying Morbi, Ahmedabad, Surat, and pan-India.",
     images: [
       {
         url: "/hero_bathroom.png",
         width: 1200,
         height: 630,
-        alt: "Axpert Cera Premium Sanitaryware Products - Manufacturer in Morbi Gujarat",
+        alt: "Axpert Cera Luxury Sanitaryware Products - Ceramic Hub Morbi Gujarat",
       },
     ],
   },
@@ -93,7 +109,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Axpert Cera | Premium Sanitaryware Manufacturer",
     description:
-      "Discover Axpert Cera's luxury, ISO-certified ceramic sanitaryware. We manufacture masterfully crafted One Piece Toilets, Basins, & Designer Collections for pan-India markets including Morbi, Ahmedabad & Surat.",
+      "Explore Axpert Cera's luxury ceramic range: One Piece Toilets, Wall Hung WCs, & Designer Basins. Premium quality from Morbi, Gujarat for the Indian and Global markets.",
     images: ["/hero_bathroom.png"],
     creator: "@axpertcera",
   },
@@ -106,11 +122,14 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   manifest: "/manifest.webmanifest",
+  category: "Manufacturing",
+};
+
+export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#1A2744" },
   ],
-  category: "Manufacturing",
 };
 
 export default function RootLayout({
@@ -165,6 +184,21 @@ export default function RootLayout({
           },
           geoRadius: "200000",
         },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${BASE_URL}/#website`,
+        url: BASE_URL,
+        name: "Axpert Cera",
+        description: "Premium Sanitaryware Manufacturer in India",
+        potentialAction: {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${BASE_URL}/products?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "LocalBusiness",
@@ -236,63 +270,63 @@ export default function RootLayout({
             "@type": "ListItem",
             position: 1,
             name: "One Piece Toilet",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/one-piece-toilet`,
             description: "Premium one piece toilets manufactured in Morbi, Gujarat",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Pedestal Wash Basin",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/pedestal-wash-basin`,
             description: "High-quality pedestal wash basins - Polo, Sophia, Stargold and more",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "One Piece Basin",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/one-piece-basin`,
             description: "Elegant one piece wash basins - Damru, Glass, Capsule designs",
           },
           {
             "@type": "ListItem",
             position: 4,
             name: "Wall Hung Toilet",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/wall-hung-toilet`,
             description: "Modern wall hung toilets - Globus and Oscar designs",
           },
           {
             "@type": "ListItem",
             position: 5,
             name: "Water Closet",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/water-closet`,
             description: "EWC water closets - Floor Mount, Square EWC, Anglo, and Concealed options",
           },
           {
             "@type": "ListItem",
             position: 6,
             name: "Table Top Basin",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/table-top-basin`,
             description: "Stylish table top basins - Harrier, Tissot, Venito, Tork and more",
           },
           {
             "@type": "ListItem",
             position: 7,
             name: "Wall Mount Wash Basin",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/wall-mount-wash-basin`,
             description: "Space-saving wall mount wash basins in multiple sizes",
           },
           {
             "@type": "ListItem",
             position: 8,
             name: "Pan & Urinal",
-            url: `${BASE_URL}/#collections`,
+            url: `${BASE_URL}/categories/pan-and-urinal`,
             description: "Orissa pans, urinals, sinks - complete sanitation range",
           },
           {
             "@type": "ListItem",
             position: 9,
             name: "Designer Collection",
-            url: `${BASE_URL}/#products`,
+            url: `${BASE_URL}/products`,
             description: "Exclusive designer sanitaryware - Vitrosa Stargold, Polo, and premium basins",
           },
         ],
@@ -326,7 +360,6 @@ export default function RootLayout({
             gtag('config', 'G-1SRVE3786Z');
           `}
         </Script>
-
         {children}
       </body>
     </html>

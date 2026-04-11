@@ -18,9 +18,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
   body {
     background-color: #ffffff;
     color: var(--color-text-dark);

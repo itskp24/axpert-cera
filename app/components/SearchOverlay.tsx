@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Search, X, ArrowRight, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { CATEGORIES, DESIGNER_COLLECTIONS } from '../utils/constants';
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -27,8 +30,20 @@ const NAME_FORMAT_MAP: Record<string, string> = {
 };
 
 export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchOverlayProps) {
+  const pathname = usePathname();
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<{ id: string, image: string }[]>([]);
+
+  // Function to determine the real route based on the cloudinary folder ID
+  const getPathForId = (id: string) => {
+    const classic = CATEGORIES.find(c => c.cloudinaryFolder === id);
+    if (classic) return `/categories/${classic.slug}`;
+    
+    const designer = DESIGNER_COLLECTIONS.find(c => c.cloudinaryFolder === id);
+    if (designer) return `/designer/${designer.slug}`;
+    
+    return '/products';
+  };
 
   // Lock body scroll when search is open
   useEffect(() => {
@@ -58,16 +73,8 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
     return NAME_FORMAT_MAP[lower] || name.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
   };
 
-  const handleLinkClick = (e: React.MouseEvent, item: string) => {
+  const handleLinkClick = () => {
     onClose();
-    const formatted = formatName(item);
-    const targetId = formatted.toLowerCase().includes('designer') ? "products" : "collections";
-    const element = document.getElementById(targetId);
-    if (element) {
-      e.preventDefault();
-      element.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', `#${targetId}`);
-    }
   };
 
   return (
@@ -117,8 +124,8 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
                 {(query ? suggestions : catalogItems.slice(0, 10)).map((item, idx) => (
                   <Link
                     key={idx}
-                    href={formatName(item.id).toLowerCase().includes('designer') ? "#products" : "#collections"}
-                    onClick={(e) => handleLinkClick(e, item.id)}
+                    href={getPathForId(item.id)}
+                    onClick={handleLinkClick}
                     className="group bg-white p-4.5 rounded-lg border border-[#EEE] hover:border-[#C4A484] hover:shadow-xl hover:shadow-[#C4A484]/5 transition-all duration-300 flex items-center gap-4"
                   >
                     <div className="w-11 h-11 bg-[#FAFAF9] rounded-md flex items-center justify-center overflow-hidden border border-[#F5F5F3] relative p-1 group-hover:bg-white transition-colors duration-300">
@@ -152,14 +159,18 @@ export default function SearchOverlay({ isOpen, onClose, catalogItems }: SearchO
               <div>
                 <h5 className="text-[9px] font-bold tracking-[0.2em] text-navy/60 uppercase border-b border-[#EEE] pb-3.5 mb-5">Shortcuts</h5>
                 <ul className="space-y-3">
-                  {['Designer Collection', 'One Piece Toilets', 'Water Closets'].map((link) => (
-                    <li key={link}>
+                  {[
+                    { label: 'Designer Series', href: '/products' },
+                    { label: 'One Piece Toilets', href: '/categories/one-piece-toilet' },
+                    { label: 'Pedestal Basins', href: '/categories/pedestal-wash-basin' }
+                  ].map((link) => (
+                    <li key={link.label}>
                       <Link
-                        href={link.toLowerCase().includes('designer') ? "#products" : "#collections"}
-                        onClick={(e) => handleLinkClick(e, link)}
+                        href={link.href}
+                        onClick={handleLinkClick}
                         className="text-[12px] font-medium text-text-gray hover:text-[#C4A484] transition-colors flex items-center justify-between group"
                       >
-                        {link}
+                        {link.label}
                         <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-1 transition-all" />
                       </Link>
                     </li>
