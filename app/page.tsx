@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description:
     'Experience premium quality with Axpert Cera, a world-class ISO-certified sanitaryware manufacturer. Discover our exquisite range of One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, Table Top Basins, and exclusive Designer Collections. Proudly supplying dealers and buyers in Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar, and across all of India.',
   keywords: [
+    // --- Original Keywords ---
     'Axpert Cera',
     'Axpert Ceramic',
     'Axpert Cera Morbi',
@@ -58,6 +59,90 @@ export const metadata: Metadata = {
     'ISO certified sanitaryware India',
     'ceramic sanitaryware supplier India',
     'bathroom products all India',
+
+    // --- Gujarat Targeted Expansion ---
+    'sanitaryware manufacturer in Ahmedabad',
+    'wholesale wash basin supplier Surat',
+    'premium ceramic products Vadodara',
+    'one piece toilet dealer Rajkot',
+    'designer sanitaryware Jamnagar',
+    'wall hung toilet price Bhavnagar',
+    'ceramic sanitaryware distributor Gandhinagar',
+    'wash basin manufacturer Morbi',
+    'EWC toilet supplier Junagadh',
+    'sanitaryware wholesale market Gujarat',
+
+    // --- Maharashtra Targeted Expansion ---
+    'sanitaryware manufacturer in Mumbai',
+    'wholesale wash basin supplier Pune',
+    'premium ceramic products Nagpur',
+    'one piece toilet dealer Thane',
+    'designer sanitaryware Nashik',
+    'wall hung toilet price Aurangabad',
+    'ceramic sanitaryware distributor Navi Mumbai',
+    'sanitaryware wholesale market Mumbai',
+    'bathroom fittings supplier Kolhapur',
+    'designer wash basin Solapur',
+
+    // --- Rajasthan Targeted Expansion ---
+    'sanitaryware manufacturer in Jaipur',
+    'wholesale wash basin supplier Jodhpur',
+    'premium ceramic products Kota',
+    'one piece toilet dealer Udaipur',
+    'designer sanitaryware Bikaner',
+    'wall hung toilet price Ajmer',
+    'ceramic sanitaryware distributor Bhilwara',
+    'bathroom fittings supplier Alwar',
+    'sanitaryware wholesale market Rajasthan',
+
+    // --- North India (Delhi NCR, UP, Punjab) Expansion ---
+    'sanitaryware manufacturer in Delhi',
+    'wholesale wash basin supplier New Delhi',
+    'premium ceramic products Noida',
+    'one piece toilet dealer Gurgaon',
+    'designer sanitaryware Faridabad',
+    'wall hung toilet price Ghaziabad',
+    'ceramic sanitaryware distributor Lucknow',
+    'bathroom fittings supplier Kanpur',
+    'designer wash basin Agra',
+    'wholesale sanitaryware Varanasi',
+    'one piece toilet supplier Chandigarh',
+    'premium bathroom fittings Ludhiana',
+
+    // --- South India Targeted Expansion ---
+    'sanitaryware manufacturer in Bangalore',
+    'wholesale wash basin supplier Hyderabad',
+    'premium ceramic products Chennai',
+    'one piece toilet dealer Coimbatore',
+    'designer sanitaryware Kochi',
+    'wall hung toilet price Thiruvananthapuram',
+    'ceramic sanitaryware distributor Madurai',
+    'bathroom fittings supplier Mysore',
+    'wholesale sanitaryware Mangalore',
+
+    // --- Madhya Pradesh Targeted Expansion ---
+    'sanitaryware manufacturer in Indore',
+    'wholesale wash basin supplier Bhopal',
+    'premium ceramic products Jabalpur',
+    'one piece toilet dealer Gwalior',
+    'designer sanitaryware Ujjain',
+    
+    // --- East India Targeted Expansion ---
+    'sanitaryware manufacturer in Kolkata',
+    'wholesale wash basin supplier Patna',
+    'premium ceramic products Bhubaneswar',
+    'one piece toilet dealer Guwahati',
+    'designer sanitaryware Ranchi',
+
+    // --- General High-Intent Buyer Keywords ---
+    'best sanitaryware brands in India',
+    'top ceramic basin manufacturers',
+    'affordable luxury bathroom fittings India',
+    'B2B sanitaryware suppliers India',
+    'bulk order one piece toilets',
+    'hotel project sanitaryware suppliers',
+    'architectural ceramic sanitaryware',
+    'ISO certified wash basin export quality'
   ],
   alternates: {
     canonical: BASE_URL,
@@ -85,6 +170,8 @@ export const metadata: Metadata = {
 };
 
 import { fetchCloudinaryImages } from './utils/cloudinary';
+import SeoContentBlock from './components/SeoContentBlock';
+
 export default async function Home() {
   // Fetched once at build time, then cached and revalidated every 24h
   const imageData = await fetchCloudinaryImages();
@@ -178,6 +265,7 @@ export default async function Home() {
         <Heritage />
         <Features />
         <Newsletter />
+        <SeoContentBlock pageType="home" />
         <Footer />
       </main>
     </>

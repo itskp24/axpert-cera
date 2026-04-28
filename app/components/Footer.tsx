@@ -119,7 +119,7 @@ export default function Footer() {
               <a
                 href="https://wa.me/919429339212?text=Hello,%20I%20would%20like%20to%20inquire%20about%20Axpert%20Cera%20products."
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 aria-label="Chat with Axpert Cera on WhatsApp"
                 className="inline-flex items-center gap-2 mt-2 text-[12px] font-semibold text-[#25D366] hover:text-white transition-colors"
               >

@@ -71,7 +71,7 @@ export default function Newsletter() {
           <a
             href="https://wa.me/919429339212?text=Hello,%20I%20would%20like%20to%20request%20the%20Axpert%20Cera%20product%20catalog."
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             aria-label="Request Axpert Cera catalog on WhatsApp"
             className="border-[1.5px] border-navy text-navy px-10 py-4 text-[12px] font-bold tracking-[0.12em] uppercase hover:bg-navy hover:text-white transition-all"
           >

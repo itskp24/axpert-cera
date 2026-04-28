@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { getDesignerCollectionBySlug, DESIGNER_COLLECTIONS } from '../../utils/constants';
+import { getDesignerCollectionBySlug, DESIGNER_COLLECTIONS, TARGET_CITIES } from '../../utils/constants';
 import { fetchCloudinaryImages } from '../../utils/cloudinary';
 import ProductGrid from '../../components/ProductGrid';
+import SeoContentBlock from '../../components/SeoContentBlock';
 
 export const revalidate = 86400;
 
@@ -24,16 +25,31 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!category) return { title: 'Not Found' };
 
   // Distribute city targets across different collections for broader SEO
-  const cities = ['Bangalore', 'Delhi', 'Mumbai', 'Ahmedabad', 'Surat', 'Hyderabad', 'Pune', 'Chennai', 'Jaipur'];
-  const cityIndex = p.slug.length % cities.length;
-  const targetCity = cities[cityIndex];
+  const cityIndex = p.slug.length % TARGET_CITIES.length;
+  const targetCity = TARGET_CITIES[cityIndex];
 
-  const optimizedTitle = `Luxury ${category.name} in ${targetCity} | Axpert Cera Artisan Collection`;
+  const optimizedTitle = `Luxury ${category.name} in ${targetCity}`;
   const optimizedDesc = `${category.description} Part of Axpert Cera's signature Vitrosa series, providing exclusive ceramic art for high-end projects in ${targetCity} and across India.`;
 
   return {
     title: optimizedTitle,
     description: optimizedDesc,
+    keywords: [
+      category.name,
+      `luxury ${category.name}`,
+      `designer ${category.name}`,
+      `${category.name} price in ${targetCity}`,
+      `${category.name} showroom in ${targetCity}`,
+      `exclusive ${category.name} India`,
+      `${category.name} in Ahmedabad`,
+      `${category.name} in Surat`,
+      `${category.name} in Mumbai`,
+      `${category.name} in Pune`,
+      `${category.name} in Delhi`,
+      `${category.name} in Bangalore`,
+      `hotel project sanitaryware`,
+      `Vitrosa collection ceramic`
+    ],
     openGraph: {
       title: optimizedTitle,
       description: optimizedDesc,
@@ -54,6 +70,10 @@ export default async function DesignerPage({ params }: { params: Promise<{ slug:
   if (!category) {
     notFound();
   }
+
+  // Same logic for targetCity inside the component to pass to SeoContentBlock
+  const cityIndex = p.slug.length % TARGET_CITIES.length;
+  const targetCity = TARGET_CITIES[cityIndex];
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -128,6 +148,7 @@ export default async function DesignerPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </main>
+      <SeoContentBlock pageType="designer" dynamicName={category.name} dynamicCity={targetCity} />
       <Footer />
     </>
   );

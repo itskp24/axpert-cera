@@ -3,10 +3,81 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Heritage from '../components/Heritage';
 import Features from '../components/Features';
+import SeoContentBlock from '../components/SeoContentBlock';
 
 export const metadata: Metadata = {
-  title: 'About Us | Axpert Cera | Premium Sanitaryware Manufacturer in India',
+  title: 'About Us | Premium Sanitaryware Manufacturer',
   description: 'Experience the quality of Axpert Cera, a premier sanitaryware manufacturer serving Ahmedabad, Mumbai, Delhi, and Bangalore. Established in 2019, we specialize in ISO-certified vitreous china production for residential and commercial projects across India.',
+  keywords: [
+    'Axpert Cera about us',
+    'sanitaryware company in Morbi',
+    'ISO certified sanitaryware manufacturer',
+    'premium ceramic factory Gujarat',
+    'top bathroom fittings brand India',
+    'sanitaryware exporter Morbi',
+    'ceramic manufacturing company Ahmedabad',
+    'B2B sanitaryware supplier Mumbai',
+    'wholesale sanitaryware manufacturer Delhi',
+    'quality vitreous china production',
+    'hotel sanitaryware supplier Pune',
+    'commercial bathroom fittings Bangalore',
+    'bulk sanitaryware manufacturer Rajasthan',
+    'ceramic industry leaders Morbi',
+    'sanitaryware distributors wanted India',
+
+    // --- Gujarat (Original Focus) ---
+    'about sanitaryware company Morbi',
+    'about ceramic company Ahmedabad',
+    'about bathroom fittings manufacturer Gujarat',
+    'about sanitaryware supplier Surat',
+    'about vitrosa bathroom products',
+    'about designer sanitaryware Rajkot',
+    'about wholesale ceramic supplier Vadodara',
+    'about ISO certified manufacturer India',
+
+    // --- Maharashtra Expansion ---
+    'about sanitaryware company Mumbai',
+    'about bathroom fittings manufacturer Pune',
+    'about ceramic company Thane',
+    'about sanitaryware supplier Nashik',
+    'about vitrosa products Maharashtra',
+
+    // --- Rajasthan Expansion ---
+    'about sanitaryware company Jaipur',
+    'about bathroom fittings manufacturer Jodhpur',
+    'about ceramic company Kota',
+    'about sanitaryware supplier Udaipur',
+
+    // --- North India (Delhi NCR, UP, Punjab) ---
+    'about sanitaryware company Delhi',
+    'about bathroom fittings manufacturer Gurgaon',
+    'about ceramic company Noida',
+    'about sanitaryware supplier Lucknow',
+    'about vitrosa collection India',
+
+    // --- South India ---
+    'about sanitaryware company Bangalore',
+    'about bathroom fittings manufacturer Chennai',
+    'about ceramic company Hyderabad',
+    'about sanitaryware supplier Kochi',
+
+    // --- Madhya Pradesh ---
+    'about sanitaryware company Indore',
+    'about bathroom fittings manufacturer Bhopal',
+
+    // --- East India ---
+    'about sanitaryware company Kolkata',
+    'about bathroom fittings manufacturer Patna',
+
+    // --- General High-Intent Keywords ---
+    'about premium sanitaryware brand',
+    'about luxury bathroom fittings India',
+    'about ceramic manufacturing company India',
+    'about ISO 9001 certified manufacturer'
+  ],
+  alternates: {
+    canonical: 'https://www.axpertcera.com/about',
+  },
 };
 
 const BASE_URL = 'https://www.axpertcera.com';
@@ -42,14 +113,14 @@ export default function AboutPage() {
         {/* Page Header */}
         <section className="bg-[#F8F8F6] py-20 border-b border-[#EBEBEB]">
           <div className="max-w-[1440px] mx-auto px-5 md:px-10 text-center">
-             <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#C4A484] mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">Established 2019</div>
-             <h1 className="font-serif text-[clamp(45px,6vw,80px)] font-normal text-[#1A1A1A] leading-[1.05] animate-in fade-in slide-in-from-bottom-8 duration-1000">
-               Engineering <span className="italic text-[#C4A484]">Artistry.</span>
-             </h1>
-             <p className="mt-8 max-w-2xl mx-auto text-[#555] text-[16px] leading-relaxed animate-in fade-in slide-in-from-bottom-12 duration-1000">
-               Discover the legacy of Axpert Cera, where every ceramic piece is a testament to precision, 
-               international quality standards, and timeless designer aesthetics.
-             </p>
+            <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#C4A484] mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">Established 2019</div>
+            <h1 className="font-serif text-[clamp(45px,6vw,80px)] font-normal text-[#1A1A1A] leading-[1.05] animate-in fade-in slide-in-from-bottom-8 duration-1000">
+              Engineering <span className="italic text-[#C4A484]">Artistry.</span>
+            </h1>
+            <p className="mt-8 max-w-2xl mx-auto text-[#555] text-[16px] leading-relaxed animate-in fade-in slide-in-from-bottom-12 duration-1000">
+              Discover the legacy of Axpert Cera, where every ceramic piece is a testament to precision,
+              international quality standards, and timeless designer aesthetics.
+            </p>
           </div>
         </section>
 
@@ -62,19 +133,19 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="font-serif text-[32px] text-[#1A1A1A] mb-8 leading-tight">
-                  Our Commitment to <br/> 
+                  Our Commitment to <br />
                   <span className="text-[#C4A484] italic">Uncompromising Quality.</span>
                 </h2>
                 <div className="space-y-6 text-[#555] text-[15px] leading-loose">
                   <p>
-                    Quality is the cornerstone of Axpert Cera. As an ISO-certified manufacturer, our production process 
-                    involves rigorous testing at every stage—from raw material selection to final glazing. 
-                    Our high-grade ceramic ensures low water absorption, exceptional strength, and a brilliant, 
+                    Quality is the cornerstone of Axpert Cera. As an ISO-certified manufacturer, our production process
+                    involves rigorous testing at every stage—from raw material selection to final glazing.
+                    Our high-grade ceramic ensures low water absorption, exceptional strength, and a brilliant,
                     easy-to-clean finish that lasts for generations.
                   </p>
                   <p>
-                    We believe that a bathroom is more than a functional space; it's a sanctuary. 
-                    That's why our R&D team continuously explores global design trends to bring 
+                    We believe that a bathroom is more than a functional space; it's a sanctuary.
+                    That's why our R&D team continuously explores global design trends to bring
                     sophisticated, ergonomic, and water-efficient sanitaryware to your doorstep.
                   </p>
                 </div>
@@ -110,6 +181,7 @@ export default function AboutPage() {
         </section>
 
         <Features />
+        <SeoContentBlock pageType="about" />
       </main>
       <Footer />
     </>

@@ -147,3 +147,26 @@ const getCurrentFiscalYear = () => {
 };
 
 export const LATEST_COLLECTION_YEAR = getCurrentFiscalYear();
+
+export const TARGET_CITIES = [
+  // Gujarat (Primary Focus)
+  'Ahmedabad', 'Surat', 'Vadodara', 'Rajkot', 'Bhavnagar', 'Jamnagar', 'Gandhinagar', 'Junagadh', 'Gandhidham', 'Anand', 'Navsari', 'Morbi', 'Nadiad', 'Surendranagar', 'Bharuch', 'Mehsana', 'Bhuj', 'Porbandar', 'Palanpur', 'Valsad', 'Vapi', 'Gondal', 'Veraval', 'Godhra', 'Patan', 'Dahod', 'Botad', 'Amreli', 'Deesa', 'Jetpur',
+  
+  // Maharashtra
+  'Mumbai', 'Pune', 'Nagpur', 'Thane', 'Nashik', 'Kalyan-Dombivli', 'Vasai-Virar', 'Aurangabad', 'Navi Mumbai', 'Solapur', 'Mira-Bhayandar', 'Bhiwandi', 'Amravati', 'Nanded', 'Kolhapur', 'Akola', 'Panvel', 'Ulhasnagar', 'Sangli', 'Malegaon', 'Jalgaon', 'Latur', 'Dhule', 'Ahmednagar', 'Chandrapur', 'Parbhani',
+  
+  // Rajasthan
+  'Jaipur', 'Jodhpur', 'Kota', 'Bikaner', 'Ajmer', 'Udaipur', 'Bhilwara', 'Alwar', 'Bharatpur', 'Sikar', 'Pali', 'Sri Ganganagar', 'Kishangarh', 'Baran', 'Dhaulpur', 'Tonk', 'Beawar', 'Hanumangarh',
+  
+  // Madhya Pradesh
+  'Indore', 'Bhopal', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar', 'Dewas', 'Satna', 'Ratlam', 'Rewa', 'Murwara (Katni)', 'Singrauli', 'Burhanpur', 'Khandwa', 'Morena', 'Bhind', 'Chhindwara', 'Guna', 'Shivpuri', 'Vidisha',
+
+  // South India (Karnataka, Tamil Nadu, Telangana, Andhra, Kerala)
+  'Bangalore', 'Hyderabad', 'Chennai', 'Coimbatore', 'Kochi', 'Thiruvananthapuram', 'Kozhikode', 'Madurai', 'Mysore', 'Mangalore', 'Hubli-Dharwad', 'Belgaum', 'Visakhapatnam', 'Vijayawada', 'Guntur', 'Nellore', 'Warangal', 'Nizamabad', 'Tiruchirappalli', 'Salem', 'Tirunelveli', 'Tiruppur',
+  
+  // North India (Delhi NCR, UP, Punjab, Haryana)
+  'Delhi', 'New Delhi', 'Noida', 'Gurgaon', 'Faridabad', 'Ghaziabad', 'Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut', 'Prayagraj', 'Bareilly', 'Aligarh', 'Moradabad', 'Saharanpur', 'Gorakhpur', 'Ludhiana', 'Amritsar', 'Jalandhar', 'Patiala', 'Chandigarh', 'Rohtak', 'Panipat', 'Karnal',
+  
+  // East India (West Bengal, Bihar, Odisha, Assam)
+  'Kolkata', 'Patna', 'Bhubaneswar', 'Cuttack', 'Guwahati', 'Ranchi', 'Jamshedpur', 'Dhanbad', 'Asansol', 'Siliguri', 'Durgapur', 'Howrah', 'Gaya', 'Bhagalpur', 'Muzaffarpur', 'Rourkela', 'Brahmapur'
+];

@@ -6,10 +6,84 @@ import Footer from '../components/Footer';
 import Categories from '../components/Categories';
 import SignaturePieces from '../components/SignaturePieces';
 import { fetchCloudinaryImages } from '../utils/cloudinary';
+import SeoContentBlock from '../components/SeoContentBlock';
 
 export const metadata: Metadata = {
-  title: 'Luxury Sanitaryware Products | One Piece Toilet & Wash Basin | Surat, Rajkot, Ahmedabad',
+  title: 'Luxury Sanitaryware | Toilets & Basins',
   description: 'Explore Axpert Cera\'s complete collection of premium ceramic products. We supply high-performance One Piece Toilets and Wash Basins to dealers in Surat, Rajkot, Vadodara, and Ahmedabad. Discover quality bathroom solutions for your home.',
+  keywords: [
+    'luxury sanitaryware products',
+    'premium one piece toilets India',
+    'designer wash basin wholesale',
+    'ceramic water closet supplier',
+    'wall hung toilet distributor Gujarat',
+    'table top basin manufacturer',
+    'pedestal wash basin dealer Mumbai',
+    'bathroom fittings collection',
+    'pan and urinal factory price',
+    'modern sanitaryware design India',
+
+    // --- Gujarat Targeted ---
+    'sanitaryware products Ahmedabad',
+    'buy wash basin Surat',
+    'one piece toilet dealer Vadodara',
+    'luxury ceramic products Rajkot',
+    'designer bathroom fittings Jamnagar',
+    'water closet supplier Bhavnagar',
+    'wholesale sanitaryware Morbi',
+
+    // --- Maharashtra Targeted ---
+    'sanitaryware products Mumbai',
+    'buy wash basin Pune',
+    'one piece toilet dealer Thane',
+    'luxury ceramic products Nagpur',
+    'designer bathroom fittings Nashik',
+    'water closet supplier Aurangabad',
+    'wholesale sanitaryware Navi Mumbai',
+
+    // --- Rajasthan Targeted ---
+    'sanitaryware products Jaipur',
+    'buy wash basin Jodhpur',
+    'one piece toilet dealer Udaipur',
+    'luxury ceramic products Kota',
+    'wholesale sanitaryware Bikaner',
+
+    // --- North India (Delhi NCR, UP, Punjab) ---
+    'sanitaryware products Delhi',
+    'buy wash basin New Delhi',
+    'one piece toilet dealer Gurgaon',
+    'luxury ceramic products Noida',
+    'designer bathroom fittings Ghaziabad',
+    'wholesale sanitaryware Lucknow',
+    'water closet supplier Chandigarh',
+
+    // --- South India Targeted ---
+    'sanitaryware products Bangalore',
+    'buy wash basin Hyderabad',
+    'one piece toilet dealer Chennai',
+    'luxury ceramic products Kochi',
+    'designer bathroom fittings Coimbatore',
+
+    // --- Madhya Pradesh Targeted ---
+    'sanitaryware products Indore',
+    'buy wash basin Bhopal',
+    'one piece toilet dealer Gwalior',
+
+    // --- East India Targeted ---
+    'sanitaryware products Kolkata',
+    'buy wash basin Patna',
+    'one piece toilet dealer Bhubaneswar',
+
+    // --- General High-Intent Product Keywords ---
+    'buy premium sanitaryware online India',
+    'best one piece toilets for home',
+    'architectural wash basin collection',
+    'bulk order ceramic toilets',
+    'b2b sanitaryware products India'
+  ],
+  alternates: {
+    canonical: 'https://www.axpertcera.com/products',
+  },
 };
 
 export const revalidate = 86400;
@@ -145,6 +219,7 @@ export default async function ProductsHubPage() {
               </div>
            </div>
         </section>
+        <SeoContentBlock pageType="products" />
       </main>
 
       <Footer />
