@@ -9,6 +9,7 @@ import { getDesignerCollectionBySlug, DESIGNER_COLLECTIONS, TARGET_CITIES } from
 import { fetchCloudinaryImages } from '../../utils/cloudinary';
 import ProductGrid from '../../components/ProductGrid';
 import SeoContentBlock from '../../components/SeoContentBlock';
+import { buildDesignerPageKeywords } from '../../utils/seoKeywords';
 
 export const revalidate = 86400;
 
@@ -34,44 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: optimizedTitle,
     description: optimizedDesc,
-    keywords: [
-      category.name,
-      `luxury ${category.name}`,
-      `designer ${category.name}`,
-      `${category.name} price in ${targetCity}`,
-      `${category.name} showroom in ${targetCity}`,
-      `exclusive ${category.name} India`,
-      // Gujarat zone
-      `${category.name} in Ahmedabad`,
-      `${category.name} in Surat`,
-      `${category.name} in Rajkot`,
-      `${category.name} in Vadodara`,
-      `${category.name} in Gandhinagar`,
-      // North India
-      `${category.name} in Delhi`,
-      `${category.name} in Lucknow`,
-      `${category.name} in Jaipur`,
-      `${category.name} in Chandigarh`,
-      // South India
-      `${category.name} in Bangalore`,
-      `${category.name} in Hyderabad`,
-      `${category.name} in Chennai`,
-      `${category.name} in Kochi`,
-      // West India
-      `${category.name} in Mumbai`,
-      `${category.name} in Pune`,
-      // East India
-      `${category.name} in Kolkata`,
-      `${category.name} in Bhubaneswar`,
-      `${category.name} in Guwahati`,
-      // Central India
-      `${category.name} in Bhopal`,
-      `${category.name} in Indore`,
-      `hotel project sanitaryware`,
-      `Vitrosa collection ceramic`,
-      `luxury designer sanitaryware India`,
-      `premium ceramic designer collection India`,
-    ],
+    keywords: buildDesignerPageKeywords(category.name),
     openGraph: {
       title: optimizedTitle,
       description: optimizedDesc,

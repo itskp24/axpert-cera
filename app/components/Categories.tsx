@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CATEGORIES } from '../utils/constants';
-import { motion, AnimatePresence } from 'framer-motion';
 import GalleryModal from './GalleryModal';
 
 interface Category {
@@ -21,7 +20,6 @@ interface CategoriesProps {
 }
 
 export default function Categories({ imageData, variant = 'default', hideHeader = false }: CategoriesProps) {
-  // Use the constant mapping to build the UI array
   const initialCategories: Category[] = CATEGORIES.map(catInfo => {
     const key = catInfo.cloudinaryFolder;
     const imgs = (key && imageData[key]?.length > 0) ? imageData[key] : ['/placeholder.png'];
@@ -39,7 +37,17 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryTitle, setGalleryTitle] = useState('');
 
-  // Auto-cycle card images every 3s
+  // Preload all images silently using native browser Image object
+  useEffect(() => {
+    categories.forEach(cat => {
+      cat.images.forEach(src => {
+        const img = new window.Image();
+        img.src = src;
+      });
+    });
+  }, [categories]);
+
+  // Cycle images every 3.5s — instant swap, zero animation
   useEffect(() => {
     if (!categories.length) return;
     const timer = setInterval(() => {
@@ -49,12 +57,11 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
           return imgs.length > 1 ? (idx + 1) % imgs.length : idx;
         })
       );
-    }, 3000);
+    }, 3500);
     return () => clearInterval(timer);
   }, [categories]);
 
   const handleCardClick = (e: React.MouseEvent, cat: Category) => {
-    // Strictly for mobile - check width
     if (window.innerWidth < 1024) {
       e.preventDefault();
       setGalleryImages(cat.images);
@@ -90,49 +97,45 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
               href={`/categories/${cat.slug}`}
               key={idx}
               onClick={(e) => handleCardClick(e, cat)}
-              className={`group cursor-pointer flex flex-col transition-all duration-500 block relative ${
-                variant === 'premium' 
-                  ? 'bg-white p-3 md:p-4 h-[340px] md:h-[440px] border border-[#EBEBEB] hover:border-[#C4A484] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]' 
+              className={`group cursor-pointer flex flex-col transition-all duration-300 block relative ${
+                variant === 'premium'
+                  ? 'bg-white p-3 md:p-4 h-[340px] md:h-[440px] border border-[#EBEBEB] hover:border-[#C4A484] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]'
                   : 'bg-white p-4 md:p-6 h-[340px] md:h-[460px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-[#EBEBEB] hover:border-[#1A1A1A]'}`}
             >
-              <div className={`relative flex-1 overflow-hidden flex items-center justify-center transition-all duration-700 ${
-                variant === 'premium' 
-                  ? 'bg-[#FAFAF9] h-[180px] md:h-[280px] mb-4 md:mb-6' 
-                  : 'bg-white mb-6 md:mb-8 p-4 md:p-8 group-hover:bg-[#F5F5F3] h-full'}`}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentImageIndices[idx]}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center justify-center p-4 md:p-6"
-                  >
-                    <Image
-                      src={cat.images[currentImageIndices[idx]]}
-                      alt={`${cat.name} rendering view`}
-                      width={600}
-                      height={600}
-                      quality={90}
-                      className={`object-contain w-full h-full transition-transform duration-700 ${variant === 'premium' ? 'scale-95 group-hover:scale-105' : 'group-hover:scale-105'}`}
-                    />
-                  </motion.div>
-                </AnimatePresence>
+              <div className={`relative flex-1 overflow-hidden flex items-center justify-center ${
+                variant === 'premium'
+                  ? 'bg-[#FAFAF9] h-[180px] md:h-[280px] mb-4 md:mb-6'
+                  : 'bg-[#FAFAF9] mb-6 md:mb-8 p-4 md:p-8 h-full'}`}>
+
+                {/* Direct image — instant swap, no animation whatsoever */}
+                <div className="absolute inset-0 flex items-center justify-center p-4 md:p-6">
+                  <Image
+                    key={`${idx}-${currentImageIndices[idx]}`}
+                    src={cat.images[currentImageIndices[idx]]}
+                    alt={`${cat.name} rendering view`}
+                    width={600}
+                    height={600}
+                    quality={90}
+                    priority={idx < 4 && currentImageIndices[idx] === 0}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
               </div>
 
               <div className={`flex items-end justify-between mt-auto relative z-10 ${variant === 'premium' ? 'px-1 md:px-2' : ''}`}>
                 <div className="flex-1 pr-2">
-                  <p className="text-[8px] md:text-[9px] font-bold tracking-[0.2em] text-[#C4A484] uppercase mb-1 md:mb-1.5 font-sans">Series Collection</p>
-                  
+                  <p className="text-[8px] md:text-[9px] font-bold tracking-[0.2em] text-[#C4A484] uppercase mb-1 md:mb-1.5 font-sans">
+                    {variant === 'premium' ? 'DESIGNER SERIES' : 'Series Collection'}
+                  </p>
                   <h3 className={`font-sans font-medium text-[#1A1A1A] leading-tight mb-1 transition-colors duration-300 ${
-                    variant === 'premium' 
-                      ? 'text-[16px] md:text-[22px] group-hover:text-[#C4A484]' 
+                    variant === 'premium'
+                      ? 'text-[16px] md:text-[22px] group-hover:text-[#C4A484]'
                       : 'text-[15px] md:text-[20px] font-serif'}`}>
                     {cat.name}
                   </h3>
                   <p className="text-[10px] md:text-[11px] text-[#666] font-normal tracking-wide font-sans">{cat.count}</p>
                 </div>
-                
+
                 {variant === 'premium' ? (
                   <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-[#1A1A1A] overflow-hidden">
                     <svg className="w-4 h-4 md:w-5 md:h-5 -translate-x-1 transition-transform duration-500 group-hover:translate-x-1 group-hover:text-[#C4A484]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -153,7 +156,7 @@ export default function Categories({ imageData, variant = 'default', hideHeader 
         </div>
       </div>
 
-      <GalleryModal 
+      <GalleryModal
         isOpen={galleryOpen}
         onClose={() => setGalleryOpen(false)}
         images={galleryImages}

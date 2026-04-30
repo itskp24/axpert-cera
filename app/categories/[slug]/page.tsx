@@ -9,6 +9,7 @@ import { getCategoryBySlug, CATEGORIES, TARGET_CITIES } from '../../utils/consta
 import { fetchCloudinaryImages } from '../../utils/cloudinary';
 import ProductGrid from '../../components/ProductGrid';
 import SeoContentBlock from '../../components/SeoContentBlock';
+import { buildCategoryPageKeywords } from '../../utils/seoKeywords';
 
 export const revalidate = 86400;
 
@@ -35,46 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: optimizedTitle,
     description: optimizedDesc,
-    keywords: [
-      category.name,
-      `premium ${category.name}`,
-      `${category.name} manufacturer India`,
-      `wholesale ${category.name} supplier`,
-      `${category.name} in ${targetCity}`,
-      `${category.name} dealer in ${targetCity}`,
-      `${category.name} price in ${targetCity}`,
-      // Gujarat zone
-      `${category.name} in Ahmedabad`,
-      `${category.name} in Surat`,
-      `${category.name} in Rajkot`,
-      `${category.name} in Vadodara`,
-      `${category.name} in Gandhinagar`,
-      `${category.name} in Morbi`,
-      // North India
-      `${category.name} in Delhi`,
-      `${category.name} in Lucknow`,
-      `${category.name} in Jaipur`,
-      `${category.name} in Chandigarh`,
-      // South India
-      `${category.name} in Bangalore`,
-      `${category.name} in Hyderabad`,
-      `${category.name} in Chennai`,
-      `${category.name} in Kochi`,
-      // West India
-      `${category.name} in Mumbai`,
-      `${category.name} in Pune`,
-      `${category.name} in Nagpur`,
-      // East India
-      `${category.name} in Kolkata`,
-      `${category.name} in Bhubaneswar`,
-      `${category.name} in Guwahati`,
-      // Central India
-      `${category.name} in Bhopal`,
-      `${category.name} in Raipur`,
-      `bulk ${category.name} orders`,
-      `ceramic ${category.name}`,
-      `ISO certified ${category.name} India`,
-    ],
+    keywords: buildCategoryPageKeywords(category.name),
     openGraph: {
       title: optimizedTitle,
       description: optimizedDesc,

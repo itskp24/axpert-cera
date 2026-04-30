@@ -4,123 +4,12 @@ import Footer from '../components/Footer';
 import Heritage from '../components/Heritage';
 import Features from '../components/Features';
 import SeoContentBlock from '../components/SeoContentBlock';
+import { ABOUT_PAGE_KEYWORDS } from '../utils/seoKeywords';
 
 export const metadata: Metadata = {
   title: 'About Us | Premium Sanitaryware Manufacturer',
   description: 'Experience the quality of Axpert Cera, a premier sanitaryware manufacturer serving Ahmedabad, Mumbai, Delhi, and Bangalore. Established in 2019, we specialize in ISO-certified vitreous china production for residential and commercial projects across India.',
-  keywords: [
-    'Axpert Cera about us',
-    'sanitaryware company in Morbi',
-    'ISO certified sanitaryware manufacturer',
-    'premium ceramic factory Gujarat',
-    'top bathroom fittings brand India',
-    'sanitaryware exporter Morbi',
-    'ceramic manufacturing company Ahmedabad',
-    'B2B sanitaryware supplier Mumbai',
-    'wholesale sanitaryware manufacturer Delhi',
-    'quality vitreous china production',
-    'hotel sanitaryware supplier Pune',
-    'commercial bathroom fittings Bangalore',
-    'bulk sanitaryware manufacturer Rajasthan',
-    'ceramic industry leaders Morbi',
-    'sanitaryware distributors wanted India',
-
-    // --- Gujarat (Original Focus) ---
-    'about sanitaryware company Morbi',
-    'about ceramic company Ahmedabad',
-    'about bathroom fittings manufacturer Gujarat',
-    'about sanitaryware supplier Surat',
-    'about vitrosa bathroom products',
-    'about designer sanitaryware Rajkot',
-    'about wholesale ceramic supplier Vadodara',
-    'about ISO certified manufacturer India',
-
-    // --- Maharashtra Expansion ---
-    'about sanitaryware company Mumbai',
-    'about bathroom fittings manufacturer Pune',
-    'about ceramic company Thane',
-    'about sanitaryware supplier Nashik',
-    'about vitrosa products Maharashtra',
-
-    // --- Rajasthan Expansion ---
-    'about sanitaryware company Jaipur',
-    'about bathroom fittings manufacturer Jodhpur',
-    'about ceramic company Kota',
-    'about sanitaryware supplier Udaipur',
-
-    // --- North India (Delhi NCR, UP, Punjab) ---
-    'about sanitaryware company Delhi',
-    'about bathroom fittings manufacturer Gurgaon',
-    'about ceramic company Noida',
-    'about sanitaryware supplier Lucknow',
-    'about vitrosa collection India',
-
-    // --- South India ---
-    'about sanitaryware company Bangalore',
-    'about bathroom fittings manufacturer Chennai',
-    'about ceramic company Hyderabad',
-    'about sanitaryware supplier Kochi',
-
-    // --- Madhya Pradesh ---
-    'about sanitaryware company Indore',
-    'about bathroom fittings manufacturer Bhopal',
-
-    // --- East India ---
-    'about sanitaryware company Kolkata',
-    'about bathroom fittings manufacturer Patna',
-
-    // --- General High-Intent Keywords ---
-    'about premium sanitaryware brand',
-    'about luxury bathroom fittings India',
-    'about ceramic manufacturing company India',
-    'about ISO 9001 certified manufacturer',
-
-    // --- All Remaining State Capitals ---
-    'about sanitaryware company Lucknow',
-    'about ceramic company Bhopal',
-    'about bathroom fittings manufacturer Jaipur',
-    'about sanitaryware company Patna',
-    'about ceramic company Raipur',
-    'about bathroom fittings manufacturer Ranchi',
-    'about sanitaryware company Bhubaneswar',
-    'about ceramic company Thiruvananthapuram',
-    'about bathroom fittings manufacturer Bangalore',
-    'about sanitaryware company Hyderabad',
-    'about ceramic company Amaravati',
-    'about sanitaryware company Panaji',
-    'about bathroom manufacturer Shimla',
-    'about ceramic company Dehradun',
-    'about sanitaryware company Chandigarh',
-    'about ceramic manufacturer Srinagar',
-    'about sanitaryware company Jammu',
-
-    // --- Northeast India – All State Capitals ---
-    'about sanitaryware company Guwahati',
-    'about ceramic company Shillong',
-    'about bathroom fittings manufacturer Imphal',
-    'about sanitaryware company Aizawl',
-    'about ceramic company Kohima',
-    'about bathroom fittings manufacturer Agartala',
-    'about sanitaryware company Gangtok',
-    'about ceramic manufacturer Itanagar',
-    'about sanitaryware company Dibrugarh',
-    'about bathroom products Silchar',
-
-    // --- UT Capitals ---
-    'about sanitaryware company Puducherry',
-    'about ceramic company Port Blair',
-    'about bathroom fittings Daman',
-    'about sanitaryware company Silvassa',
-
-    // --- Gujarat Interior ---
-    'about sanitaryware manufacturer Anand',
-    'about ceramic company Bharuch',
-    'about bathroom fittings Mehsana',
-    'about sanitaryware manufacturer Bhuj',
-    'about ceramic company Gandhidham',
-    'about sanitaryware manufacturer Navsari',
-    'about bathroom fittings Wankaner',
-  ],
+  keywords: ABOUT_PAGE_KEYWORDS,
   alternates: {
     canonical: 'https://www.axpertcera.com/about',
   },
