@@ -43,14 +43,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       `${category.name} in ${targetCity}`,
       `${category.name} dealer in ${targetCity}`,
       `${category.name} price in ${targetCity}`,
+      // Gujarat zone
       `${category.name} in Ahmedabad`,
       `${category.name} in Surat`,
+      `${category.name} in Rajkot`,
+      `${category.name} in Vadodara`,
+      `${category.name} in Gandhinagar`,
+      `${category.name} in Morbi`,
+      // North India
+      `${category.name} in Delhi`,
+      `${category.name} in Lucknow`,
+      `${category.name} in Jaipur`,
+      `${category.name} in Chandigarh`,
+      // South India
+      `${category.name} in Bangalore`,
+      `${category.name} in Hyderabad`,
+      `${category.name} in Chennai`,
+      `${category.name} in Kochi`,
+      // West India
       `${category.name} in Mumbai`,
       `${category.name} in Pune`,
-      `${category.name} in Delhi`,
-      `${category.name} in Bangalore`,
+      `${category.name} in Nagpur`,
+      // East India
+      `${category.name} in Kolkata`,
+      `${category.name} in Bhubaneswar`,
+      `${category.name} in Guwahati`,
+      // Central India
+      `${category.name} in Bhopal`,
+      `${category.name} in Raipur`,
       `bulk ${category.name} orders`,
-      `ceramic ${category.name}`
+      `ceramic ${category.name}`,
+      `ISO certified ${category.name} India`,
     ],
     openGraph: {
       title: optimizedTitle,

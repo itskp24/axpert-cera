@@ -137,36 +137,131 @@ const getCurrentFiscalYear = () => {
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth(); // 0-indexed: April is 3
-  
+
   // If month is April (3) or later, the fiscal year starts this year
   // Otherwise, it started last year
   const startYear = currentMonth >= 3 ? currentYear : currentYear - 1;
   const endYearSnippet = (startYear + 1).toString().slice(-2);
-  
+
   return `${startYear}-${endYearSnippet}`;
 };
 
 export const LATEST_COLLECTION_YEAR = getCurrentFiscalYear();
 
 export const TARGET_CITIES = [
-  // Gujarat (Primary Focus)
-  'Ahmedabad', 'Surat', 'Vadodara', 'Rajkot', 'Bhavnagar', 'Jamnagar', 'Gandhinagar', 'Junagadh', 'Gandhidham', 'Anand', 'Navsari', 'Morbi', 'Nadiad', 'Surendranagar', 'Bharuch', 'Mehsana', 'Bhuj', 'Porbandar', 'Palanpur', 'Valsad', 'Vapi', 'Gondal', 'Veraval', 'Godhra', 'Patan', 'Dahod', 'Botad', 'Amreli', 'Deesa', 'Jetpur',
-  
-  // Maharashtra
-  'Mumbai', 'Pune', 'Nagpur', 'Thane', 'Nashik', 'Kalyan-Dombivli', 'Vasai-Virar', 'Aurangabad', 'Navi Mumbai', 'Solapur', 'Mira-Bhayandar', 'Bhiwandi', 'Amravati', 'Nanded', 'Kolhapur', 'Akola', 'Panvel', 'Ulhasnagar', 'Sangli', 'Malegaon', 'Jalgaon', 'Latur', 'Dhule', 'Ahmednagar', 'Chandrapur', 'Parbhani',
-  
-  // Rajasthan
-  'Jaipur', 'Jodhpur', 'Kota', 'Bikaner', 'Ajmer', 'Udaipur', 'Bhilwara', 'Alwar', 'Bharatpur', 'Sikar', 'Pali', 'Sri Ganganagar', 'Kishangarh', 'Baran', 'Dhaulpur', 'Tonk', 'Beawar', 'Hanumangarh',
-  
-  // Madhya Pradesh
-  'Indore', 'Bhopal', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar', 'Dewas', 'Satna', 'Ratlam', 'Rewa', 'Murwara (Katni)', 'Singrauli', 'Burhanpur', 'Khandwa', 'Morena', 'Bhind', 'Chhindwara', 'Guna', 'Shivpuri', 'Vidisha',
+  // ── Gujarat – Tier 1 (Primary Focus) ────────────────────────────────────
+  'Ahmedabad', 'Surat', 'Vadodara', 'Rajkot', 'Bhavnagar', 'Jamnagar',
+  'Gandhinagar', 'Junagadh', 'Gandhidham', 'Anand', 'Navsari', 'Morbi',
+  'Nadiad', 'Surendranagar', 'Bharuch', 'Mehsana', 'Bhuj', 'Porbandar',
+  'Palanpur', 'Valsad', 'Vapi', 'Gondal', 'Veraval', 'Godhra', 'Patan',
+  'Dahod', 'Botad', 'Amreli', 'Deesa', 'Jetpur',
 
-  // South India (Karnataka, Tamil Nadu, Telangana, Andhra, Kerala)
-  'Bangalore', 'Hyderabad', 'Chennai', 'Coimbatore', 'Kochi', 'Thiruvananthapuram', 'Kozhikode', 'Madurai', 'Mysore', 'Mangalore', 'Hubli-Dharwad', 'Belgaum', 'Visakhapatnam', 'Vijayawada', 'Guntur', 'Nellore', 'Warangal', 'Nizamabad', 'Tiruchirappalli', 'Salem', 'Tirunelveli', 'Tiruppur',
-  
-  // North India (Delhi NCR, UP, Punjab, Haryana)
-  'Delhi', 'New Delhi', 'Noida', 'Gurgaon', 'Faridabad', 'Ghaziabad', 'Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut', 'Prayagraj', 'Bareilly', 'Aligarh', 'Moradabad', 'Saharanpur', 'Gorakhpur', 'Ludhiana', 'Amritsar', 'Jalandhar', 'Patiala', 'Chandigarh', 'Rohtak', 'Panipat', 'Karnal',
-  
-  // East India (West Bengal, Bihar, Odisha, Assam)
-  'Kolkata', 'Patna', 'Bhubaneswar', 'Cuttack', 'Guwahati', 'Ranchi', 'Jamshedpur', 'Dhanbad', 'Asansol', 'Siliguri', 'Durgapur', 'Howrah', 'Gaya', 'Bhagalpur', 'Muzaffarpur', 'Rourkela', 'Brahmapur'
+  // ── Gujarat – Tier 2 & Tier 3 (Comprehensive) ───────────────────────────
+  'Wankaner', 'Limbdi', 'Chotila', 'Dhrangadhra', 'Wadhwan', 'Halvad',
+  'Maliya', 'Ankleshwar', 'Rajpipla', 'Mandvi', 'Mundra', 'Nakhatrana',
+  'Mahuva', 'Palitana', 'Savarkundla', 'Dhari', 'Keshod', 'Upleta',
+  'Dhoraji', 'Paddhari', 'Unjha', 'Visnagar', 'Kadi', 'Sidhpur',
+  'Kapadvanj', 'Khambhat', 'Petlad', 'Umreth', 'Dholka', 'Viramgam',
+  'Sanand', 'Bavla', 'Idar', 'Himmatnagar', 'Modasa',
+
+  // ── Maharashtra ──────────────────────────────────────────────────────────
+  'Mumbai', 'Pune', 'Nagpur', 'Thane', 'Nashik', 'Aurangabad',
+  'Navi Mumbai', 'Solapur', 'Amravati', 'Nanded', 'Kolhapur', 'Akola',
+  'Bhiwandi', 'Panvel', 'Sangli', 'Malegaon', 'Jalgaon', 'Latur',
+  'Dhule', 'Ahmednagar', 'Chandrapur', 'Parbhani',
+
+  // ── Rajasthan ────────────────────────────────────────────────────────────
+  'Jaipur', 'Jodhpur', 'Kota', 'Bikaner', 'Ajmer', 'Udaipur',
+  'Bhilwara', 'Alwar', 'Bharatpur', 'Sikar', 'Pali', 'Sri Ganganagar',
+  'Kishangarh', 'Tonk', 'Beawar', 'Hanumangarh', 'Chittorgarh',
+
+  // ── Madhya Pradesh ───────────────────────────────────────────────────────
+  'Indore', 'Bhopal', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar',
+  'Dewas', 'Satna', 'Ratlam', 'Rewa', 'Singrauli', 'Burhanpur',
+  'Khandwa', 'Morena', 'Chhindwara', 'Guna', 'Shivpuri', 'Vidisha',
+
+  // ── Chhattisgarh (Capital: Raipur) ──────────────────────────────────────
+  'Raipur', 'Bhilai', 'Durg', 'Korba', 'Bilaspur', 'Rajnandgaon',
+
+  // ── Goa (Capital: Panaji) ────────────────────────────────────────────────
+  'Panaji', 'Margao', 'Vasco da Gama',
+
+  // ── Karnataka (Capital: Bengaluru) ───────────────────────────────────────
+  'Bangalore', 'Mysore', 'Mangalore', 'Hubli', 'Dharwad', 'Belgaum',
+  'Tumkur', 'Davangere', 'Ballari', 'Bidar', 'Vijayapura',
+
+  // ── Tamil Nadu (Capital: Chennai) ────────────────────────────────────────
+  'Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem',
+  'Tirunelveli', 'Tiruppur', 'Erode', 'Vellore', 'Thoothukudi',
+  'Dindigul', 'Thanjavur', 'Cuddalore',
+
+  // ── Telangana (Capital: Hyderabad) ───────────────────────────────────────
+  'Hyderabad', 'Warangal', 'Nizamabad', 'Karimnagar', 'Khammam',
+  'Mahbubnagar', 'Secunderabad',
+
+  // ── Andhra Pradesh (Capital: Amaravati) ──────────────────────────────────
+  'Visakhapatnam', 'Vijayawada', 'Guntur', 'Nellore', 'Tirupati',
+  'Kurnool', 'Rajahmundry', 'Kakinada', 'Anantapur', 'Amaravati',
+
+  // ── Kerala (Capital: Thiruvananthapuram) ─────────────────────────────────
+  'Kochi', 'Thiruvananthapuram', 'Kozhikode', 'Thrissur', 'Kollam',
+  'Kannur', 'Palakkad', 'Malappuram', 'Alappuzha',
+
+  // ── Delhi NCR ────────────────────────────────────────────────────────────
+  'Delhi', 'New Delhi', 'Noida', 'Gurgaon', 'Faridabad', 'Ghaziabad',
+  'Greater Noida',
+
+  // ── Uttar Pradesh (Capital: Lucknow) ─────────────────────────────────────
+  'Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut', 'Prayagraj',
+  'Bareilly', 'Aligarh', 'Moradabad', 'Saharanpur', 'Gorakhpur',
+  'Mathura', 'Firozabad', 'Rampur', 'Shahjahanpur', 'Hapur',
+
+  // ── Punjab (Capital: Chandigarh) ─────────────────────────────────────────
+  'Ludhiana', 'Amritsar', 'Jalandhar', 'Patiala', 'Bathinda',
+  'Mohali', 'Pathankot',
+
+  // ── Haryana (Capital: Chandigarh) ────────────────────────────────────────
+  'Chandigarh', 'Rohtak', 'Panipat', 'Karnal', 'Ambala',
+  'Yamunanagar', 'Hisar', 'Sirsa', 'Bhiwani',
+
+  // ── Himachal Pradesh (Capital: Shimla) ───────────────────────────────────
+  'Shimla', 'Dharamshala', 'Manali', 'Mandi', 'Solan', 'Palampur',
+
+  // ── Uttarakhand (Capital: Dehradun) ──────────────────────────────────────
+  'Dehradun', 'Haridwar', 'Rishikesh', 'Nainital', 'Haldwani',
+  'Roorkee', 'Rudrapur',
+
+  // ── Jammu & Kashmir / Ladakh ─────────────────────────────────────────────
+  'Srinagar', 'Jammu', 'Leh', 'Kargil',
+
+  // ── West Bengal (Capital: Kolkata) ───────────────────────────────────────
+  'Kolkata', 'Howrah', 'Asansol', 'Siliguri', 'Durgapur', 'Bardhaman',
+  'Malda', 'Kharagpur', 'Haldia',
+
+  // ── Bihar (Capital: Patna) ───────────────────────────────────────────────
+  'Patna', 'Gaya', 'Bhagalpur', 'Muzaffarpur', 'Darbhanga', 'Purnia',
+  'Arrah', 'Bihar Sharif',
+
+  // ── Jharkhand (Capital: Ranchi) ──────────────────────────────────────────
+  'Ranchi', 'Jamshedpur', 'Dhanbad', 'Bokaro', 'Hazaribagh', 'Deoghar',
+
+  // ── Odisha (Capital: Bhubaneswar) ────────────────────────────────────────
+  'Bhubaneswar', 'Cuttack', 'Rourkela', 'Brahmapur', 'Puri', 'Sambalpur',
+
+  // ── Northeast India – All State Capitals + Major Cities ─────────────────
+  'Guwahati', 'Dispur',          // Assam (Capital: Dispur)
+  'Shillong',                     // Meghalaya
+  'Imphal',                       // Manipur
+  'Aizawl',                       // Mizoram
+  'Kohima', 'Dimapur',            // Nagaland
+  'Agartala',                     // Tripura
+  'Gangtok',                      // Sikkim
+  'Itanagar',                     // Arunachal Pradesh
+  'Dibrugarh', 'Silchar', 'Jorhat', 'Tezpur',  // Assam cities
+
+  // ── Union Territory Capitals ─────────────────────────────────────────────
+  'Puducherry',                   // Puducherry UT
+  'Port Blair',                   // Andaman & Nicobar Islands
+  'Daman', 'Silvassa',            // Dadra & Nagar Haveli and Daman & Diu
+  'Kavaratti',                    // Lakshadweep
 ];

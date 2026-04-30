@@ -76,13 +76,66 @@ export const metadata: Metadata = {
 
       // --- General High-Intent Keywords ---
       'best sanitaryware catalog India',
-      'premium bathroom catalog 2024',
+      'premium bathroom catalog 2026',
       'ceramic sanitaryware catalog PDF',
       'wholesale bathroom fittings catalog',
       'architectural sanitaryware catalog',
       'modern bathroom design catalog',
-      'luxury ceramic catalog'
-   ],
+      'luxury ceramic catalog',
+
+      // --- All State Capitals ---
+      'sanitaryware catalog Lucknow',
+      'bathroom fittings catalog Bhopal',
+      'one piece toilet catalog Jaipur',
+      'sanitaryware catalog Patna',
+      'bathroom catalog Raipur',
+      'ceramic catalog Ranchi',
+      'sanitaryware catalog Bhubaneswar',
+      'bathroom fittings catalog Thiruvananthapuram',
+      'sanitaryware catalog Bangalore',
+      'bathroom catalog Hyderabad',
+      'ceramic catalog Amaravati',
+      'sanitaryware catalog Panaji',
+      'bathroom fittings catalog Shimla',
+      'ceramic catalog Dehradun',
+      'sanitaryware catalog Chandigarh',
+      'bathroom catalog Srinagar',
+      'ceramic catalog Jammu',
+
+      // --- Northeast India State Capitals ---
+      'sanitaryware catalog Guwahati',
+      'bathroom fittings catalog Shillong',
+      'ceramic catalog Imphal',
+      'sanitaryware catalog Aizawl',
+      'bathroom catalog Kohima',
+      'ceramic catalog Agartala',
+      'sanitaryware catalog Gangtok',
+      'bathroom fittings catalog Itanagar',
+
+      // --- UT Capitals ---
+      'sanitaryware catalog Puducherry',
+      'bathroom catalog Port Blair',
+      'ceramic catalog Daman',
+      'sanitaryware catalog Silvassa',
+
+      // --- Gujarat Interior ---
+      'sanitaryware catalog Anand',
+      'bathroom fittings catalog Bharuch',
+      'ceramic catalog Mehsana',
+      'sanitaryware catalog Bhuj',
+      'bathroom catalog Gandhidham',
+      'ceramic catalog Navsari',
+      'sanitaryware catalog Morbi',
+      'bathroom fittings catalog Wankaner',
+      'ceramic catalog Gondal',
+
+      // --- Export & B2B Catalog Terms ---
+      'sanitaryware catalog export India',
+      'ceramic products catalog PDF download',
+      'bulk sanitaryware catalog request',
+      'dealer sanitaryware price catalog India',
+      'sanitaryware catalog for builders India',
+    ],
    alternates: {
       canonical: 'https://www.axpertcera.com/catalog',
    },

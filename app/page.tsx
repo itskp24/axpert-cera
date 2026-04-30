@@ -142,7 +142,66 @@ export const metadata: Metadata = {
     'bulk order one piece toilets',
     'hotel project sanitaryware suppliers',
     'architectural ceramic sanitaryware',
-    'ISO certified wash basin export quality'
+    'ISO certified wash basin export quality',
+
+    // --- All State Capitals (Compulsory) ---
+    'sanitaryware Lucknow',
+    'wash basin Bhopal',
+    'bathroom fittings Jaipur',
+    'sanitaryware Patna',
+    'ceramic products Raipur',
+    'one piece toilet Ranchi',
+    'sanitaryware Bhubaneswar',
+    'wash basin Thiruvananthapuram',
+    'bathroom fittings Bangalore',
+    'sanitaryware Hyderabad',
+    'ceramic products Amaravati',
+    'wash basin Panaji',
+    'sanitaryware Shimla',
+    'bathroom fittings Dehradun',
+    'ceramic products Chandigarh',
+    'sanitaryware Srinagar',
+    'wash basin Jammu',
+
+    // --- Northeast India – All State Capitals ---
+    'sanitaryware Guwahati',
+    'ceramic products Shillong',
+    'bathroom fittings Imphal',
+    'sanitaryware Aizawl',
+    'wash basin Kohima',
+    'ceramic products Agartala',
+    'sanitaryware Gangtok',
+    'bathroom fittings Itanagar',
+    'wash basin Dibrugarh',
+    'sanitaryware Silchar',
+
+    // --- UT Capitals ---
+    'sanitaryware Puducherry',
+    'ceramic products Port Blair',
+    'bathroom fittings Daman',
+    'sanitaryware Silvassa',
+
+    // --- Gujarat Interior Cities ---
+    'sanitaryware Anand',
+    'wash basin Bharuch',
+    'ceramic products Mehsana',
+    'bathroom fittings Bhuj',
+    'sanitaryware Gandhidham',
+    'wash basin Navsari',
+    'ceramic products Wankaner',
+    'bathroom fittings Limbdi',
+    'sanitaryware Dhrangadhra',
+    'wash basin Halvad',
+
+    // --- Buyer-Intent (B2B, from seo.md) ---
+    'sanitaryware dealer wanted',
+    'become sanitaryware dealer India',
+    'sanitaryware distributorship Gujarat',
+    'bulk bathroom fittings supplier India',
+    'factory direct toilet manufacturer India',
+    'sanitaryware for housing projects India',
+    'sanitaryware supplier for builders Gujarat',
+    'ceramic wash basin wholesale price India',
   ],
   alternates: {
     canonical: BASE_URL,
@@ -216,7 +275,7 @@ export default async function Home() {
         name: 'Where is Axpert Cera located?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Axpert Cera is based in Gujarat, India - at Gugliyana, Near Gugliyana Bus Stop, Than Chotila Road, Than, SurendraNagar, Gujarat 363530. We serve customers in Morbi, Rajkot, Chotila, and across India.',
+          text: 'Axpert Cera is based in Gujarat, India — at Gugliyana, Near Gugliyana Bus Stop, Than Chotila Road, Than, SurendraNagar, Gujarat 363530. We serve customers across Morbi, Rajkot, Chotila, Ahmedabad, Surat, Vadodara, and across all of India.',
         },
       },
       {
@@ -232,7 +291,7 @@ export default async function Home() {
         name: 'Is Axpert Cera ISO certified?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. Axpert Cera is an ISO-certified sanitaryware manufacturer, ensuring every product meets international quality standards.',
+          text: 'Yes. Axpert Cera is an ISO 9001:2015 certified sanitaryware manufacturer, ensuring every product meets international quality management standards.',
         },
       },
       {
@@ -240,7 +299,55 @@ export default async function Home() {
         name: 'How can I get the Axpert Cera product catalog?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'You can download the Axpert Cera product catalog directly from our website at axpertcera.com/catalog.pdf, or contact us on WhatsApp at +91 94293 39212.',
+          text: 'You can download the Axpert Cera product catalog directly from our website at axpertcera.com/catalog.pdf, or contact us on WhatsApp at +91 94293 39212 to receive it instantly.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you supply sanitaryware to dealers across all Indian states?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Axpert Cera supplies sanitaryware to dealers, distributors, and builders across all 28 Indian states and Union Territories, including Gujarat, Maharashtra, Rajasthan, Uttar Pradesh, Delhi, Karnataka, Tamil Nadu, Telangana, Kerala, West Bengal, Bihar, Odisha, Madhya Pradesh, Chhattisgarh, Punjab, Haryana, Himachal Pradesh, Uttarakhand, Jharkhand, Andhra Pradesh, Goa, and all Northeast states including Assam, Meghalaya, Manipur, Mizoram, Nagaland, Tripura, Sikkim, and Arunachal Pradesh.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the minimum order quantity (MOQ) for bulk sanitaryware orders?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Axpert Cera offers flexible MOQ for bulk sanitaryware orders. Whether you are a dealer placing a starter stock order or a builder requiring project quantities, please contact our sales team on WhatsApp at +91 94293 39212 or email info@axpertcera.com for a custom quotation.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How can I become an Axpert Cera authorized dealer?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'To become an authorized Axpert Cera dealer, contact our sales team via WhatsApp at +91 94293 39212 or email info@axpertcera.com. We offer attractive dealer margins, marketing support, and a comprehensive product range for showrooms across India.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does Axpert Cera offer export sanitaryware supply?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Axpert Cera offers export-quality sanitaryware packaging and international shipping support. As an ISO-certified Gujarat manufacturer, we supply premium ceramic sanitaryware to buyers outside India as well. Contact us for export pricing.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which cities in Gujarat does Axpert Cera supply sanitaryware?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Axpert Cera supplies sanitaryware across all major Gujarat cities including Ahmedabad, Surat, Vadodara, Rajkot, Bhavnagar, Jamnagar, Gandhinagar, Junagadh, Anand, Navsari, Morbi, Mehsana, Bharuch, Bhuj, Gandhidham, Porbandar, Valsad, Vapi, Deesa, Patan, Godhra, Gondal, Surendranagar, and many more towns and districts.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What are the certifications and quality standards of Axpert Cera products?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Axpert Cera holds ISO 9001:2015 certification. Our sanitaryware products are manufactured using high-grade vitreous china with low water absorption, brilliant glaze finish, and rigorous quality testing at every stage of production to meet both Indian and international standards.',
         },
       },
     ],

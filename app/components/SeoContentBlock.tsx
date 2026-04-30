@@ -20,8 +20,11 @@ export default function SeoContentBlock({ pageType, dynamicName, dynamicCity }: 
           <p className="mb-4">
             As an ISO 9001:2015 certified company, Axpert Cera strictly adheres to international quality standards. We understand that modern bathrooms are not just functional spaces but personal sanctuaries. Therefore, our dedicated Research and Development team constantly innovates to bring you designs that seamlessly blend ergonomics with aesthetics. Whether you are an architect designing a luxury hotel, a builder developing a premium residential complex, or a homeowner renovating your personal space, our diverse catalog of over 125 meticulously crafted ceramic pieces offers the perfect solution to elevate your interiors.
           </p>
-          <p className="mb-0">
+          <p className="mb-4">
             Our extensive distribution network ensures that Axpert Cera's premium sanitaryware is readily available across major Indian cities, including Ahmedabad, Rajkot, Surat, Vadodara, Mumbai, Pune, Delhi, Bangalore, Hyderabad, and Chennai. We take pride in our exceptional customer service, offering prompt delivery, comprehensive technical support, and competitive pricing for bulk orders and dealer inquiries. Explore our website to discover how Axpert Cera can transform your bathroom into a masterpiece of modern luxury and unparalleled comfort.
+          </p>
+          <p className="mb-0">
+            Axpert Cera's pan-India sanitaryware supply network spans every state and union territory — from Gujarat, Maharashtra, and Rajasthan in the west, to Uttar Pradesh, Delhi, Punjab, Haryana, Himachal Pradesh, and Uttarakhand in the north; Karnataka, Tamil Nadu, Telangana, Andhra Pradesh, and Kerala in the south; West Bengal, Bihar, Odisha, Jharkhand, and Chhattisgarh in the east; and the Northeast states of Assam (Guwahati), Meghalaya (Shillong), Manipur (Imphal), Mizoram (Aizawl), Nagaland (Kohima), Tripura (Agartala), Sikkim (Gangtok), and Arunachal Pradesh (Itanagar). Whether you are a dealer in Lucknow, a builder in Bhopal, a retailer in Jaipur, or an architect in Kochi, Axpert Cera is your trusted factory-direct sanitaryware partner.
           </p>
         </>
       );
@@ -36,8 +39,11 @@ export default function SeoContentBlock({ pageType, dynamicName, dynamicCity }: 
           <p className="mb-4">
             Our expansive product portfolio is a testament to our versatility and dedication to customer satisfaction. We specialize in manufacturing a wide array of sanitaryware, including highly efficient One Piece Toilets, ergonomic Wall Hung Toilets, elegant Pedestal Wash Basins, and chic Table Top Basins. Furthermore, our exclusive Artisan and Designer Collections offer unique, bespoke designs for those looking to add a touch of distinctive luxury to their spaces. Each collection is thoughtfully curated to cater to diverse tastes, ensuring that Axpert Cera has the perfect fit for both contemporary and traditional bathroom interiors.
           </p>
-          <p className="mb-0">
+          <p className="mb-4">
             At Axpert Cera, we believe that our success is intertwined with the success of our partners and the satisfaction of our end-users. We actively collaborate with a robust network of dealers, distributors, architects, and interior designers across major metropolitan areas such as Mumbai, Delhi, Bangalore, Pune, and Hyderabad. Our holistic approach to business encompasses not only manufacturing superior products but also ensuring reliable logistics, transparent communication, and unwavering post-sales support. We invite you to experience the Axpert Cera difference—where every drop of water meets unparalleled ceramic artistry.
+          </p>
+          <p className="mb-0">
+            Axpert Cera proudly serves the entire length and breadth of India. Our authorized dealer and distributor network is active in all major Indian state capitals including Lucknow (Uttar Pradesh), Bhopal (Madhya Pradesh), Jaipur (Rajasthan), Patna (Bihar), Raipur (Chhattisgarh), Ranchi (Jharkhand), Bhubaneswar (Odisha), Thiruvananthapuram (Kerala), Bengaluru (Karnataka), Hyderabad (Telangana), Amaravati (Andhra Pradesh), Chennai (Tamil Nadu), Panaji (Goa), Shimla (Himachal Pradesh), Dehradun (Uttarakhand), Chandigarh (Punjab & Haryana), Srinagar and Jammu (J&K), Kolkata (West Bengal), Guwahati and Dispur (Assam), Shillong (Meghalaya), Imphal (Manipur), Aizawl (Mizoram), Kohima (Nagaland), Agartala (Tripura), Gangtok (Sikkim), and Itanagar (Arunachal Pradesh). No matter which part of India you are in, an Axpert Cera dealer is near you.
           </p>
         </>
       );
@@ -52,8 +58,11 @@ export default function SeoContentBlock({ pageType, dynamicName, dynamicCity }: 
           <p className="mb-4">
             The Axpert Cera catalog covers our extensive selection of over 125 ceramic masterpieces. Explore our flagship categories, including our highly acclaimed One Piece Toilets that offer seamless design and easy maintenance, and our Wall Hung Toilets that maximize floor space while providing a sleek, modern look. Dive into our diverse wash basin collections, featuring elegant Pedestal Basins, contemporary Table Top Basins, and space-saving Wall Mount options. Additionally, the catalog highlights our exclusive Designer Collections, showcasing intricate patterns, unique finishes, and luxurious aesthetics designed to become the focal point of any high-end bathroom.
           </p>
-          <p className="mb-0">
+          <p className="mb-4">
             We understand the importance of immediate access to product information in today's fast-paced construction and design industries. Therefore, our catalog is available for instant digital download, perfectly optimized for viewing on both desktop and mobile devices. For our network of dealers and distributors in cities like Mumbai, Delhi, Bangalore, Ahmedabad, and Chennai, the catalog also includes essential details regarding packaging, shipping, and bulk ordering processes. If you require physical copies of our catalog or have specific inquiries regarding custom orders and pricing lists, please do not hesitate to contact our dedicated sales team via WhatsApp or email.
+          </p>
+          <p className="mb-0">
+            The Axpert Cera product catalog is available to buyers across all Indian states and territories. Whether you are a sanitaryware dealer in Lucknow, Jaipur, Bhopal, or Patna in North-Central India; a builder in Guwahati, Shillong, Imphal, Agartala, Gangtok, or Itanagar in the Northeast; a retailer in Bhubaneswar, Ranchi, or Raipur in East-Central India; or an architect in Thiruvananthapuram, Kochi, Bangalore, Chennai, Hyderabad, or Vijayawada in the South — request your copy today. Our sales team responds within hours via WhatsApp at +91 94293 39212.
           </p>
         </>
       );
@@ -68,8 +77,11 @@ export default function SeoContentBlock({ pageType, dynamicName, dynamicCity }: 
           <p className="mb-4">
             Navigate through our expertly categorized collections to find the perfect fixtures for your specific requirements. Our renowned One Piece Toilet range offers an integrated, sleek design that eliminates hidden crevices, making cleaning effortless and ensuring superior hygiene. For a minimalist and spacious aesthetic, our Wall Hung Toilets provide a floating effect, supported by robust concealed cisterns. Complement your toilet selection with our stunning array of wash basins. Choose from classic Pedestal Wash Basins, elegant Table Top Basins that sit beautifully on vanity counters, or practical Wall Mount Basins ideal for compact spaces.
           </p>
-          <p className="mb-0">
+          <p className="mb-4">
             Beyond our classic series, Axpert Cera invites you to explore our Signature Artisan Pieces—a curated selection of designer sanitaryware that serves as true functional art. These exclusive pieces feature unique glazes, sophisticated metallic accents like our Vitrosa Stargold series, and avant-garde shapes that elevate any bathroom into a luxurious retreat. We are committed to maintaining a robust supply chain, ensuring that our entire product line is readily available to our valued dealers and customers in Surat, Rajkot, Ahmedabad, Mumbai, Pune, Delhi, Bangalore, and all other major regions across India.
+          </p>
+          <p className="mb-0">
+            Axpert Cera's complete product range — from One Piece Toilets and Pedestal Wash Basins to Wall Hung Toilets and exclusive Designer Collections — is available to buyers, dealers, and distributors across all Indian states. We serve Tier-1 metros like Ahmedabad, Mumbai, Delhi, Bangalore, Hyderabad, and Kolkata; Tier-2 cities like Lucknow, Jaipur, Bhopal, Nagpur, Coimbatore, and Visakhapatnam; and Tier-3 towns including our home base in Morbi, Surendranagar, and districts across Gujarat. Contact our sales team at +91 94293 39212 for wholesale pricing, bulk supply, or dealer onboarding in your city.
           </p>
         </>
       );

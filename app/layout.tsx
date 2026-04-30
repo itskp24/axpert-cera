@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description:
     "Axpert Cera is a world-class, ISO-certified sanitaryware manufacturer, crafting luxury ceramic products including One Piece Toilets, Pedestal Wash Basins, Wall Hung Toilets, Water Closets, and exclusive Designer Collections. Serving dealers and buyers with premium quality across Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, Chotila, SurendraNagar, and pan-India.",
   keywords: [
+    // ── Existing brand + product keywords ──────────────────────────────────
     "Axpert Cera",
     "Axpert Ceramic",
     "Axpert Cera Morbi",
@@ -67,7 +68,114 @@ export const metadata: Metadata = {
     "Luxury Sanitaryware Chennai",
     "Bathroom Products Kolkata",
     "Ceramic Industry India",
+
+    // ── State Capitals (All 28 States – Compulsory) ────────────────────────
+    "sanitaryware manufacturer Lucknow",        // UP capital
+    "ceramic products Bhopal",                  // MP capital
+    "bathroom fittings Jaipur",                 // Rajasthan capital
+    "sanitaryware Patna",                       // Bihar capital
+    "wash basin Raipur",                        // Chhattisgarh capital
+    "one piece toilet Ranchi",                  // Jharkhand capital
+    "sanitaryware Bhubaneswar",                 // Odisha capital
+    "bathroom fittings Thiruvananthapuram",     // Kerala capital
+    "wash basin Chennai",                       // Tamil Nadu capital
+    "sanitaryware Bangalore",                   // Karnataka capital
+    "ceramic products Hyderabad",               // Telangana capital
+    "bathroom fittings Amaravati",              // AP capital
+    "sanitaryware Panaji",                      // Goa capital
+    "wash basin Shimla",                        // HP capital
+    "bathroom fittings Dehradun",               // Uttarakhand capital
+    "sanitaryware Chandigarh",                  // Punjab/Haryana capital
+    "ceramic products Srinagar",                // J&K capital
+    "sanitaryware Jammu",                       // J&K winter capital
+    "wash basin Shillong",                      // Meghalaya capital
+    "sanitaryware Imphal",                      // Manipur capital
+    "bathroom fittings Aizawl",                 // Mizoram capital
+    "ceramic products Kohima",                  // Nagaland capital
+    "sanitaryware Agartala",                    // Tripura capital
+    "wash basin Gangtok",                       // Sikkim capital
+    "bathroom fittings Itanagar",               // Arunachal Pradesh capital
+    "sanitaryware Dispur",                      // Assam capital
+    "ceramic products Guwahati",                // Assam major city
+
+    // ── UT Capitals ─────────────────────────────────────────────────────────
+    "sanitaryware Puducherry",
+    "bathroom fittings Port Blair",
+    "ceramic products Daman",
+    "sanitaryware Silvassa",
+    "wash basin Kavaratti",
+
+    // ── Gujarat – Comprehensive Tier-2/3 ────────────────────────────────────
+    "sanitaryware Bhavnagar",
+    "ceramic products Jamnagar",
+    "wash basin Junagadh",
+    "bathroom fittings Anand",
+    "sanitaryware Bharuch",
+    "ceramic products Mehsana",
+    "sanitaryware Bhuj",
+    "wash basin Gandhidham",
+    "bathroom fittings Navsari",
+    "sanitaryware Wankaner",
+    "ceramic products Limbdi",
+    "wash basin Dhrangadhra",
+    "sanitaryware Halvad",
+    "bathroom fittings Ankleshwar",
+    "ceramic products Mundra",
+
+    // ── North India – Key Cities ─────────────────────────────────────────────
+    "sanitaryware Noida",
+    "ceramic products Gurgaon",
+    "wash basin Faridabad",
+    "bathroom fittings Agra",
+    "sanitaryware Varanasi",
+    "ceramic products Kanpur",
+    "wash basin Meerut",
+    "sanitaryware Prayagraj",
+    "bathroom fittings Ludhiana",
+    "ceramic products Amritsar",
+    "sanitaryware Jodhpur",
+    "wash basin Udaipur",
+    "bathroom fittings Kota",
+
+    // ── South India – Key Cities ─────────────────────────────────────────────
+    "sanitaryware Coimbatore",
+    "ceramic products Kochi",
+    "wash basin Kozhikode",
+    "bathroom fittings Mysore",
+    "sanitaryware Visakhapatnam",
+    "ceramic products Vijayawada",
+    "wash basin Tirupati",
+    "sanitaryware Thrissur",
+    "bathroom fittings Madurai",
+
+    // ── East India – Key Cities ──────────────────────────────────────────────
+    "sanitaryware Jamshedpur",
+    "ceramic products Bhubaneswar",
+    "wash basin Cuttack",
+    "bathroom fittings Siliguri",
+    "sanitaryware Durbhanga",
+    "ceramic products Bokaro",
+
+    // ── B2B Buyer-Intent Keywords (from seo.md recommendations) ─────────────
+    "sanitaryware dealer wanted India",
+    "sanitaryware distributorship India",
+    "one piece toilet factory direct India",
+    "bulk sanitaryware order India",
+    "sanitaryware exporter India",
+    "B2B sanitaryware supplier India",
+    "wholesale ceramic manufacturer India",
+    "sanitaryware manufacturer for builders India",
+    "bulk wash basin supplier India",
+    "one piece toilet wholesale India",
+    "sanitaryware for hotel projects India",
+    "commercial bathroom fittings supplier India",
+    "ISO certified ceramic manufacturer India",
+    "sanitaryware manufacturer since 2019",
+    "pan India sanitaryware supply",
+    "factory direct sanitaryware Gujarat",
+    "dealer pricing sanitaryware India",
   ],
+
   authors: [{ name: "Axpert Cera", url: BASE_URL }],
   creator: "Axpert Cera",
   publisher: "Axpert Cera",
@@ -331,8 +439,92 @@ export default function RootLayout({
           },
         ],
       },
+      // ── NEW: Manufacturer Schema ──────────────────────────────────────────
+      {
+        "@type": "Manufacturer",
+        "@id": `${BASE_URL}/#manufacturer`,
+        name: "Axpert Cera",
+        legalName: "Axpert Ceramic",
+        url: BASE_URL,
+        foundingDate: "2019",
+        description: "ISO 9001:2015 certified sanitaryware manufacturer based in Gujarat, India. Producing premium One Piece Toilets, Wash Basins, Wall Hung Toilets, Water Closets, and Designer Collections. Supplying dealers and builders across all 28 Indian states including Gujarat, Maharashtra, Rajasthan, Uttar Pradesh, Karnataka, Tamil Nadu, Telangana, Kerala, West Bengal, Bihar, Odisha, Madhya Pradesh, Chhattisgarh, Punjab, Haryana, Delhi, Himachal Pradesh, Uttarakhand, Jharkhand, Andhra Pradesh, Goa, Assam, Meghalaya, Manipur, Mizoram, Nagaland, Tripura, Sikkim, and Arunachal Pradesh.",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Gugliyana, Near Gugliyana Bus Stop, Than Chotila Road, Than",
+          addressLocality: "SurendraNagar",
+          addressRegion: "Gujarat",
+          postalCode: "363530",
+          addressCountry: "IN",
+        },
+        telephone: "+91-94293-39212",
+        email: "info@axpertcera.com",
+        areaServed: [
+          { "@type": "State", name: "Gujarat", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Maharashtra", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Rajasthan", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Uttar Pradesh", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Madhya Pradesh", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Karnataka", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Tamil Nadu", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Telangana", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Andhra Pradesh", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Kerala", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "West Bengal", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Bihar", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Odisha", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Chhattisgarh", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Jharkhand", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Punjab", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Haryana", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Delhi", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Himachal Pradesh", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Uttarakhand", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Goa", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Assam", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Meghalaya", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Manipur", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Mizoram", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Nagaland", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Tripura", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Sikkim", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Arunachal Pradesh", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "State", name: "Jammu and Kashmir", containedInPlace: { "@type": "Country", name: "India" } },
+          { "@type": "Country", name: "India" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Axpert Cera Sanitaryware Products 2026",
+          url: `${BASE_URL}/catalog`,
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "One Piece Toilet", description: "Premium vitreous china one piece toilets with dual-flush" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Pedestal Wash Basin", description: "Classic and designer pedestal wash basins" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wall Hung Toilet", description: "Space-saving wall hung WC for modern bathrooms" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Table Top Basin", description: "Luxury counter-top ceramic basins" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Water Closet EWC", description: "S-Trap and P-Trap EWC water closets" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wall Mount Wash Basin", description: "Space-saving wall mounted ceramic basins" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Designer Collection", description: "Exclusive Vitrosa designer sanitaryware" } },
+          ],
+        },
+      },
+      // ── NEW: Service Schema for B2B Supply ───────────────────────────────
+      {
+        "@type": "Service",
+        "@id": `${BASE_URL}/#service`,
+        name: "Sanitaryware Bulk Supply & Dealer Distribution",
+        provider: { "@id": `${BASE_URL}/#organization` },
+        description: "Factory-direct bulk sanitaryware supply for dealers, builders, contractors, architects, hotel projects, and real estate developers across all Indian states. Offering competitive wholesale pricing, fast dispatch from Gujarat, and full technical support.",
+        areaServed: { "@type": "Country", name: "India" },
+        serviceType: "Sanitaryware Manufacturing and Distribution",
+        offers: {
+          "@type": "Offer",
+          description: "Wholesale dealer pricing for bulk sanitaryware orders across India",
+          availability: "https://schema.org/InStock",
+          priceCurrency: "INR",
+        },
+      },
     ],
   };
+
 
   return (
     <html lang="en">

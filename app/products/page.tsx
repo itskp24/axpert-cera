@@ -79,7 +79,60 @@ export const metadata: Metadata = {
     'best one piece toilets for home',
     'architectural wash basin collection',
     'bulk order ceramic toilets',
-    'b2b sanitaryware products India'
+    'b2b sanitaryware products India',
+
+    // --- All State Capitals ---
+    'sanitaryware products Lucknow',
+    'one piece toilet Bhopal',
+    'wash basin Jaipur',
+    'bathroom fittings Patna',
+    'sanitaryware products Raipur',
+    'ceramic products Ranchi',
+    'one piece toilet Bhubaneswar',
+    'wash basin Thiruvananthapuram',
+    'bathroom fittings Bangalore',
+    'sanitaryware products Hyderabad',
+    'one piece toilet Amaravati',
+    'wash basin Panaji',
+    'bathroom fittings Shimla',
+    'sanitaryware products Dehradun',
+    'ceramic products Chandigarh',
+    'one piece toilet Srinagar',
+    'wash basin Jammu',
+
+    // --- Northeast India State Capitals ---
+    'sanitaryware products Guwahati',
+    'one piece toilet Shillong',
+    'wash basin Imphal',
+    'bathroom fittings Aizawl',
+    'sanitaryware products Kohima',
+    'ceramic products Agartala',
+    'one piece toilet Gangtok',
+    'wash basin Itanagar',
+
+    // --- UT Capitals ---
+    'sanitaryware products Puducherry',
+    'bathroom fittings Port Blair',
+    'ceramic products Daman',
+
+    // --- Gujarat Tier-2 Interior ---
+    'sanitaryware products Anand',
+    'one piece toilet Bharuch',
+    'wash basin Mehsana',
+    'bathroom fittings Bhuj',
+    'sanitaryware products Gandhidham',
+    'ceramic products Navsari',
+    'one piece toilet Wankaner',
+    'sanitaryware products Gondal',
+    'wash basin Veraval',
+    'bathroom fittings Amreli',
+
+    // --- B2B / Commercial Project Terms ---
+    'sanitaryware products for builders India',
+    'wholesale bathroom fittings for hotels',
+    'ceramic sanitaryware for real estate projects',
+    'bulk one piece toilet order India',
+    'commercial wash basin supplier India',
   ],
   alternates: {
     canonical: 'https://www.axpertcera.com/products',

@@ -73,7 +73,53 @@ export const metadata: Metadata = {
     'about premium sanitaryware brand',
     'about luxury bathroom fittings India',
     'about ceramic manufacturing company India',
-    'about ISO 9001 certified manufacturer'
+    'about ISO 9001 certified manufacturer',
+
+    // --- All Remaining State Capitals ---
+    'about sanitaryware company Lucknow',
+    'about ceramic company Bhopal',
+    'about bathroom fittings manufacturer Jaipur',
+    'about sanitaryware company Patna',
+    'about ceramic company Raipur',
+    'about bathroom fittings manufacturer Ranchi',
+    'about sanitaryware company Bhubaneswar',
+    'about ceramic company Thiruvananthapuram',
+    'about bathroom fittings manufacturer Bangalore',
+    'about sanitaryware company Hyderabad',
+    'about ceramic company Amaravati',
+    'about sanitaryware company Panaji',
+    'about bathroom manufacturer Shimla',
+    'about ceramic company Dehradun',
+    'about sanitaryware company Chandigarh',
+    'about ceramic manufacturer Srinagar',
+    'about sanitaryware company Jammu',
+
+    // --- Northeast India – All State Capitals ---
+    'about sanitaryware company Guwahati',
+    'about ceramic company Shillong',
+    'about bathroom fittings manufacturer Imphal',
+    'about sanitaryware company Aizawl',
+    'about ceramic company Kohima',
+    'about bathroom fittings manufacturer Agartala',
+    'about sanitaryware company Gangtok',
+    'about ceramic manufacturer Itanagar',
+    'about sanitaryware company Dibrugarh',
+    'about bathroom products Silchar',
+
+    // --- UT Capitals ---
+    'about sanitaryware company Puducherry',
+    'about ceramic company Port Blair',
+    'about bathroom fittings Daman',
+    'about sanitaryware company Silvassa',
+
+    // --- Gujarat Interior ---
+    'about sanitaryware manufacturer Anand',
+    'about ceramic company Bharuch',
+    'about bathroom fittings Mehsana',
+    'about sanitaryware manufacturer Bhuj',
+    'about ceramic company Gandhidham',
+    'about sanitaryware manufacturer Navsari',
+    'about bathroom fittings Wankaner',
   ],
   alternates: {
     canonical: 'https://www.axpertcera.com/about',

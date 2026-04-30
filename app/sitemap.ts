@@ -4,7 +4,7 @@ import { CATEGORIES, DESIGNER_COLLECTIONS } from './utils/constants';
 const BASE_URL = 'https://www.axpertcera.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastMod = new Date('2026-04-11');
+  const lastMod = new Date('2026-04-30');
 
   const categoryUrls: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${BASE_URL}/categories/${cat.slug}`,
