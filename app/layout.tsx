@@ -63,7 +63,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png", sizes: "512x512" },
-      { url: "/favicon.ico", sizes: "any" },
     ],
     shortcut: "/favicon.png",
     apple: "/favicon.png",
@@ -332,7 +331,7 @@ export default function RootLayout({
         ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Axpert Cera Sanitaryware Products 2026",
+          name: `Axpert Cera Sanitaryware Products ${new Date().getFullYear()}`,
           url: `${BASE_URL}/catalog`,
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Product", name: "One Piece Toilet", description: "Premium vitreous china one piece toilets with dual-flush" } },

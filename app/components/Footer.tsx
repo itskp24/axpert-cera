@@ -33,7 +33,7 @@ export default function Footer() {
               Serving Morbi · Rajkot · Ahmedabad · Gandhinagar · Surat · Vadodara · Chotila · SurendraNagar & across India
             </p>
             <div className="flex gap-3.5">
-              <a href="#" aria-label="Follow Axpert Cera on Instagram" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/axpert_cera?utm_source=qr&igsh=MTdxaXlqemc1aXg0eQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Follow Axpert Cera on Instagram" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
               <a href="#" aria-label="Follow Axpert Cera on Twitter/X" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors">
