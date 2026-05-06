@@ -334,13 +334,125 @@ export default function RootLayout({
           name: `Axpert Cera Sanitaryware Products ${new Date().getFullYear()}`,
           url: `${BASE_URL}/catalog`,
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "One Piece Toilet", description: "Premium vitreous china one piece toilets with dual-flush" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Pedestal Wash Basin", description: "Classic and designer pedestal wash basins" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wall Hung Toilet", description: "Space-saving wall hung WC for modern bathrooms" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Table Top Basin", description: "Luxury counter-top ceramic basins" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Water Closet EWC", description: "S-Trap and P-Trap EWC water closets" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wall Mount Wash Basin", description: "Space-saving wall mounted ceramic basins" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Designer Collection", description: "Exclusive Vitrosa designer sanitaryware" } },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "One Piece Toilet",
+                "description": "Premium vitreous china one piece toilets with dual-flush",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "3500",
+                  "highPrice": "15000",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "25"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Pedestal Wash Basin",
+                "description": "Classic and designer pedestal wash basins",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "1500",
+                  "highPrice": "6000",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "15"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Wall Hung Toilet",
+                "description": "Space-saving wall hung WC for modern bathrooms",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "2500",
+                  "highPrice": "9000",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "12"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Table Top Basin",
+                "description": "Luxury counter-top ceramic basins",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "1800",
+                  "highPrice": "7500",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "20"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Water Closet EWC",
+                "description": "S-Trap and P-Trap EWC water closets",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "1200",
+                  "highPrice": "5000",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "10"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Wall Mount Wash Basin",
+                "description": "Space-saving wall mounted ceramic basins",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "800",
+                  "highPrice": "4000",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "18"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Designer Collection",
+                "description": "Exclusive Vitrosa designer sanitaryware",
+                "brand": { "@type": "Brand", "name": "Axpert Cera" },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "INR",
+                  "lowPrice": "4000",
+                  "highPrice": "25000",
+                  "availability": "https://schema.org/InStock",
+                  "offerCount": "30"
+                }
+              }
+            },
           ],
         },
       },
