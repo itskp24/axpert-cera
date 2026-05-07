@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 import { ALL_INDIA_KEYWORDS } from "./utils/seoKeywords";
+import QuickActionBar from "./components/QuickActionBar";
 
 const BASE_URL = "https://www.axpertcera.com";
 
@@ -499,7 +500,10 @@ export default function RootLayout({
             gtag('config', 'G-1SRVE3786Z');
           `}
         </Script>
-        {children}
+        <div className="pb-24 md:pb-0">
+          {children}
+        </div>
+        <QuickActionBar />
       </body>
     </html>
   );

@@ -69,6 +69,7 @@ export default function Navbar() {
               { label: 'Products', href: '/products' },
               { label: 'About', href: '/about' },
               { label: 'Catalog', href: '/catalog' },
+              { label: 'Dealer', href: '/become-a-dealer' },
             ].map((item) => (
               <li key={item.label}>
                 <Link
@@ -132,6 +133,7 @@ export default function Navbar() {
                     { label: 'Products', href: '/products' },
                     { label: 'About', href: '/about' },
                     { label: 'Catalog', href: '/catalog' },
+                    { label: 'Become a Dealer', href: '/become-a-dealer' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link

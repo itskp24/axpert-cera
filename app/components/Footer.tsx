@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, ShieldCheck, Award, Globe } from 'lucide-react';
 
 const CATEGORY_LINKS = [
   { label: 'One Piece Toilet', href: '/categories/one-piece-toilet' },
@@ -32,7 +32,7 @@ export default function Footer() {
             <p className="text-[11px] text-white/30 mb-7 max-w-[240px]">
               Serving Morbi · Rajkot · Ahmedabad · Gandhinagar · Surat · Vadodara · Chotila · SurendraNagar & across India
             </p>
-            <div className="flex gap-3.5">
+            <div className="flex gap-3.5 mb-8">
               <a href="https://www.instagram.com/axpert_cera?utm_source=qr&igsh=MTdxaXlqemc1aXg0eQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Follow Axpert Cera on Instagram" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
@@ -41,9 +41,24 @@ export default function Footer() {
               </a>
               <a href="https://www.indiamart.com/axpert-cera/" target="_blank" rel="noopener noreferrer" aria-label="Visit Axpert Cera on IndiaMART" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v10h-2zm-4 4h2v6H7zm8 0h2v6h-2z"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v10h-2zm-4 4h2v6H7zm8 0h2v6h-2z" />
                 </svg>
               </a>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.1em] text-gold uppercase">
+                <ShieldCheck size={14} />
+                ISO 9001:2015 Certified
+              </div>
+              <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.1em] text-white/40 uppercase">
+                <Award size={14} />
+                Premium Vitreous China
+              </div>
+              <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.1em] text-white/40 uppercase">
+                <Globe size={14} />
+                Supplying All Indian States
+              </div>
             </div>
           </div>
 
@@ -78,6 +93,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               <li><Link href="/about" className="text-[13px] text-white/65 hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/catalog" className="text-[13px] text-white/65 hover:text-white transition-colors">Catalog PDF</Link></li>
+              <li><Link href="/become-a-dealer" className="text-[13px] text-white/65 hover:text-white transition-colors">Become a Dealer</Link></li>
             </ul>
           </div>
 
@@ -88,9 +104,9 @@ export default function Footer() {
               <div className="flex items-start gap-3 text-white/65 text-[13px] leading-[1.5]">
                 <MapPin size={16} className="text-gold shrink-0 mt-0.5" aria-hidden="true" />
                 <address className="not-italic">
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Axpert+Cera+Gugliyana+Than+Gujarat" 
-                    target="_blank" 
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Axpert+Cera+Gugliyana+Than+Gujarat"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
                   >
@@ -139,9 +155,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Axpert Cera - Premium Sanitaryware Manufacturer, Gujarat, India. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-7">
-            <Link href="#" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Terms of Service</Link>
-            <Link href="#" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Cookie Policy</Link>
+            <Link href="/privacy-policy" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Terms of Service</Link>
+            <Link href="/cookie-policy" className="text-[12px] text-white/35 hover:text-white/70 transition-colors">Cookie Policy</Link>
           </div>
         </div>
 

@@ -8,6 +8,7 @@ import Heritage from './components/Heritage';
 import Features from './components/Features';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import LocalTrustBanner from './components/LocalTrustBanner';
 import { HOME_KEYWORDS } from './utils/seoKeywords';
 
 // ── ISR: regenerate this page at most once every 24 hours ──────────────────
@@ -183,6 +184,7 @@ export default async function Home() {
       <main className="min-h-screen">
         <Navbar />
         <Hero />
+        <LocalTrustBanner />
         <Categories imageData={imageData} />
         <SignaturePieces imageData={imageData} />
         <Spotlight />

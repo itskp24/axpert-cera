@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, MessageCircle } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { getDesignerCollectionBySlug, DESIGNER_COLLECTIONS, TARGET_CITIES } from '../../utils/constants';
@@ -118,19 +118,28 @@ export default async function DesignerPage({ params }: { params: Promise<{ slug:
               Designer collection preparing...
             </div>
           ) : (
-            <ProductGrid 
-              images={images} 
-              categoryName={category.name} 
-              seoAlt={category.seoAlt} 
+            <ProductGrid
+              images={images}
+              categoryName={category.name}
+              seoAlt={category.seoAlt}
               columns="4"
               variant="designer"
             />
           )}
 
-          <div className="mt-24 text-center">
-            <Link href="/catalog.pdf" download className="inline-flex items-center justify-center px-8 py-4 bg-black text-white text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C4A484] transition-colors rounded-sm">
-              Download Full Catalog
-            </Link>
+          <div className="mt-24 flex flex-col md:flex-row items-center justify-center gap-4">
+             <Link href="/catalog.pdf" download className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 bg-black text-white text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C4A484] transition-colors rounded-sm">
+               Download Full Catalog
+             </Link>
+             <a 
+               href={`https://wa.me/919429339212?text=Hello%20Axpert%20Cera%20Sales%20Team,%20I%20am%20interested%20in%20a%20luxury%20quote%20for%20the%20${encodeURIComponent(category.name)}.`}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 bg-[#25D366] text-white text-[11px] font-bold tracking-[0.2em] uppercase transition-transform active:scale-95 rounded-sm"
+             >
+               <MessageCircle size={18} fill="currentColor" className="mr-2" />
+               Request Bulk Quote
+             </a>
           </div>
         </div>
       </main>
