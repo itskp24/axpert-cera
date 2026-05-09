@@ -59,8 +59,8 @@ export default function Navbar() {
       <nav className={`fixed top-0 left-0 right-0 z-[80] transition-all duration-500 ease-in-out ${scrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-5'}`}>
         <div className="max-w-[1280px] mx-auto px-5 md:px-10 flex items-center justify-between">
           <div className="flex flex-1 justify-start">
-            <Link href="/" onClick={() => { setActiveItem('Home'); setSearchOpen(false); setMobileMenuOpen(false); }} className="flex items-baseline gap-1 font-sans font-bold text-xl tracking-[0.1em] text-navy">
-              AXPERT <span className="text-[12px] font-normal tracking-[0.25em] text-text-gray uppercase">CERA</span>
+            <Link href="/" onClick={() => { setActiveItem('Home'); setSearchOpen(false); setMobileMenuOpen(false); }} className="flex items-baseline gap-1.5 font-sans font-bold text-xl tracking-[0.05em] text-navy">
+              AXPERT <span className="text-[13px] font-medium tracking-[0.2em] text-navy/60 uppercase">CERA</span>
             </Link>
           </div>
           <ul className="hidden lg:flex flex-1 justify-center items-center gap-10 list-none">
