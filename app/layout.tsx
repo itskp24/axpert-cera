@@ -33,13 +33,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: BASE_URL,
-  },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: BASE_URL,
     siteName: "Axpert Cera",
     title: "Axpert Cera | Premium Ceramic Sanitaryware Manufacturer India",
     description:
@@ -63,7 +59,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.png", type: "image/png", sizes: "any" },
     ],
     shortcut: "/favicon.png",
     apple: "/favicon.png",
