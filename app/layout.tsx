@@ -59,6 +59,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/weblogo.png", type: "image/png", sizes: "any" },
       { url: "/favicon.png", type: "image/png", sizes: "any" },
     ],
     shortcut: "/favicon.png",
@@ -91,8 +92,8 @@ export default function RootLayout({
         url: BASE_URL,
         logo: {
           "@type": "ImageObject",
-          url: `${BASE_URL}/favicon.png`,
-          contentUrl: `${BASE_URL}/favicon.png`,
+          url: `${BASE_URL}/weblogo.png`,
+          contentUrl: `${BASE_URL}/weblogo.png`,
         },
         foundingDate: "2019",
         description:
