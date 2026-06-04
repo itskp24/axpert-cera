@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Become a Dealer | Partner with Axpert Cera',
   description: 'Join the Axpert Cera dealer network. We are looking for distributors and partners across all Indian states to supply premium, ISO-certified sanitaryware.',
   keywords: ['sanitaryware dealer inquiry', 'bathroom fittings distributor India', 'become a sanitaryware dealer', 'ceramic products partnership'],
+  alternates: {
+    canonical: 'https://www.axpertcera.com/become-a-dealer',
+  },
 };
 
 export default function BecomeADealer() {

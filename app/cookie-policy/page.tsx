@@ -6,6 +6,9 @@ import Footer from '../components/Footer';
 export const metadata: Metadata = {
   title: 'Cookie Policy | Axpert Cera',
   description: 'Learn how Axpert Cera uses cookies to improve your browsing experience.',
+  alternates: {
+    canonical: 'https://www.axpertcera.com/cookie-policy',
+  },
 };
 
 export default function CookiePolicy() {

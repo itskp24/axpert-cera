@@ -59,11 +59,19 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/weblogo.png", type: "image/png", sizes: "any" },
-      { url: "/favicon.png", type: "image/png", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon.png", type: "image/png", sizes: "72x72" },
+      { url: "/favicon.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.png", type: "image/png", sizes: "144x144" },
+      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
     ],
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    shortcut: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [
+      { url: "/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.axpertcera.com",
   },
   manifest: "/manifest.webmanifest",
   category: "Manufacturing",
@@ -94,6 +102,9 @@ export default function RootLayout({
           "@type": "ImageObject",
           url: `${BASE_URL}/weblogo.png`,
           contentUrl: `${BASE_URL}/weblogo.png`,
+          width: 512,
+          height: 512,
+          caption: "Axpert Cera Logo",
         },
         foundingDate: "2019",
         description:
@@ -184,26 +195,7 @@ export default function RootLayout({
         servesCuisine: [],
         additionalType: "http://www.productontology.org/id/Sanitary_ware",
       },
-      {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        url: BASE_URL,
-        name: "Axpert Cera",
-        description:
-          "Experience luxury with Axpert Cera, India's premium sanitaryware manufacturer. Explore our exquisite range of One Piece Toilets, Wash Basins, Wall Hung Toilets, and Designer Collections. Proudly serving Morbi, Rajkot, Ahmedabad, Gandhinagar, Surat, Vadodara, and pan-India.",
-        publisher: {
-          "@id": `${BASE_URL}/#organization`,
-        },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${BASE_URL}/?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
-        inLanguage: "en-IN",
-      },
+      // (Duplicate WebSite entry removed — only one WebSite @id per domain is valid)
       {
         "@type": "ItemList",
         "@id": `${BASE_URL}/#productcategories`,
@@ -480,6 +472,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        {/* Explicit favicon links for Google search icon */}
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

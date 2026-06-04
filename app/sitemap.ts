@@ -3,19 +3,21 @@ import { CATEGORIES, DESIGNER_COLLECTIONS } from './utils/constants';
 
 const BASE_URL = 'https://www.axpertcera.com';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastMod = new Date();
+// Use a stable date — update this manually when content changes significantly
+// This prevents Google from seeing the sitemap as "always changed today"
+const SITE_LAST_UPDATED = new Date('2026-06-04T00:00:00Z');
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const categoryUrls: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${BASE_URL}/categories/${cat.slug}`,
-    lastModified: lastMod,
+    lastModified: SITE_LAST_UPDATED,
     changeFrequency: 'weekly',
     priority: 0.9,
   }));
 
   const designerUrls: MetadataRoute.Sitemap = DESIGNER_COLLECTIONS.map((cat) => ({
     url: `${BASE_URL}/designer/${cat.slug}`,
-    lastModified: lastMod,
+    lastModified: SITE_LAST_UPDATED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
@@ -23,59 +25,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: BASE_URL,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${BASE_URL}/products`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.95,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.75,
     },
     {
       url: `${BASE_URL}/catalog`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.70,
     },
     {
       url: `${BASE_URL}/become-a-dealer`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${BASE_URL}/privacy-policy`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.2,
     },
     {
       url: `${BASE_URL}/terms-of-service`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.2,
     },
     {
       url: `${BASE_URL}/cookie-policy`,
-      lastModified: lastMod,
+      lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.2,
     },
     ...categoryUrls,
     ...designerUrls,
-    {
-      url: `${BASE_URL}/catalog.pdf`,
-      lastModified: lastMod,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
   ];
 }

@@ -6,6 +6,9 @@ import Footer from '../components/Footer';
 export const metadata: Metadata = {
   title: 'Terms of Service | Axpert Cera',
   description: 'Terms of Service for using the Axpert Cera website and services.',
+  alternates: {
+    canonical: 'https://www.axpertcera.com/terms-of-service',
+  },
 };
 
 export default function TermsOfService() {

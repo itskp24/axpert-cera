@@ -6,6 +6,9 @@ import Footer from '../components/Footer';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Axpert Cera',
   description: 'Privacy Policy for Axpert Cera. Learn how we handle your data and protect your privacy.',
+  alternates: {
+    canonical: 'https://www.axpertcera.com/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicy() {
