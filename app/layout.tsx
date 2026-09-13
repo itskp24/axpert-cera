@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   creator: "Axpert Cera",
   publisher: "Axpert Cera",
   verification: {
-    google: "UaNwzvZj79a7-Tw8aYw7pNTI0SQ0sRXPmB13BVTSdS0",
+    google: "LuBEzWvoxwHRVQqXgOK4wZ5kNbcOCrWKftskCkSaeq8",
   },
   robots: {
     index: true,
@@ -482,14 +482,14 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased text-text-dark bg-white">
         {/* Google Analytics */}
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1SRVE3786Z" />
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-SC62TR3F3R" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-1SRVE3786Z');
+            gtag('config', 'G-SC62TR3F3R');
           `}
         </Script>
         <div className="pb-24 md:pb-0">
