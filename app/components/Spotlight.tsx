@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { Mail } from 'lucide-react';
 
 const SPOTLIGHT_IMAGES = [
-  "https://res.cloudinary.com/dbuexdwty/image/upload/images/spotlight/serenity_bathtub_1.jpg",
-  "https://res.cloudinary.com/dbuexdwty/image/upload/images/spotlight/serenity_bathtub_2.jpg",
-  "https://res.cloudinary.com/dbuexdwty/image/upload/images/spotlight/serenity_bathtub_3.jpg",
+  "https://res.cloudinary.com/kadwtqgg/image/upload/v1792387621/images/spotlight/serenity_bathtub_1.png",
+  "https://res.cloudinary.com/kadwtqgg/image/upload/v1792387690/images/spotlight/serenity_bathtub_2.png",
+  "https://res.cloudinary.com/kadwtqgg/image/upload/v1792387684/images/spotlight/serenity_bathtub_3.png",
 ];
 
 export default function Spotlight() {
